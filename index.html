@@ -1,0 +1,2465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="EDWANIKSTORE – Safe, fun & educational toys for every child"/>
+<title>EDWANIKSTORE – Fun For Everyone</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --p:#FF6B35;--pd:#D94F1E;--pl:#FF9A72;--pp:#FFF2EC;--p20:#FF6B3520;
+  --g:#10B981;--b:#3B82F6;--r:#EF4444;--y:#F59E0B;--pu:#8B5CF6;
+  --dk:#0F172A;--dk2:#1E293B;--dk3:#334155;--mid:#64748B;
+  --lt:#F8FAFC;--lt2:#F1F5F9;--wh:#FFFFFF;--bd:#E2E8F0;--bd2:#CBD5E1;
+  --sh:0 1px 3px rgba(0,0,0,.06),0 4px 16px rgba(0,0,0,.04);
+  --shm:0 8px 24px rgba(0,0,0,.1);--shl:0 20px 60px rgba(0,0,0,.15);
+  --r6:6px;--r10:10px;--r14:14px;--r20:20px;--r50:50px;
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--lt);color:var(--dk);overflow-x:hidden;line-height:1.6}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-thumb{background:var(--p);border-radius:2px}
+.hide{display:none!important}
+img{max-width:100%;height:auto}
+/* TYPOGRAPHY */
+.h1{font-family:'Playfair Display',serif;font-size:clamp(36px,6vw,72px);font-weight:700;line-height:1.1;letter-spacing:-.02em}
+.h2{font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,48px);font-weight:700;line-height:1.15;letter-spacing:-.01em}
+.h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(20px,2.5vw,28px);font-weight:700;line-height:1.3}
+.label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--mid)}
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 24px;border-radius:var(--r50);font-size:14px;font-weight:700;cursor:pointer;border:none;font-family:'Plus Jakarta Sans',sans-serif;transition:all .22s cubic-bezier(.4,0,.2,1);text-decoration:none;white-space:nowrap;letter-spacing:.2px}
+.btn-primary{background:var(--p);color:#fff;box-shadow:0 4px 12px rgba(255,107,53,.3)}
+.btn-primary:hover{background:var(--pd);transform:translateY(-2px);box-shadow:0 8px 20px rgba(255,107,53,.4)}
+.btn-outline{background:transparent;color:var(--p);border:2px solid var(--p)}
+.btn-outline:hover{background:var(--pp);transform:translateY(-1px)}
+.btn-dark{background:var(--dk);color:#fff}
+.btn-dark:hover{background:var(--dk2);transform:translateY(-1px)}
+.btn-white{background:#fff;color:var(--dk);box-shadow:var(--sh)}
+.btn-white:hover{box-shadow:var(--shm);transform:translateY(-1px)}
+.btn-ghost{background:rgba(255,255,255,.15);color:#fff;border:1.5px solid rgba(255,255,255,.25);backdrop-filter:blur(8px)}
+.btn-ghost:hover{background:rgba(255,255,255,.25)}
+.btn-sm{padding:8px 18px;font-size:13px}
+.btn-lg{padding:16px 36px;font-size:16px}
+.btn-icon{width:40px;height:40px;border-radius:50%;border:1.5px solid var(--bd);background:var(--wh);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:17px;transition:all .2s;position:relative;flex-shrink:0}
+.btn-icon:hover{border-color:var(--p);background:var(--pp);transform:scale(1.05)}
+.bdot{position:absolute;top:-4px;right:-4px;background:var(--p);color:#fff;width:18px;height:18px;border-radius:50%;font-size:10px;font-weight:800;display:flex;align-items:center;justify-content:center}
+/* INPUTS */
+.inp{width:100%;border:1.5px solid var(--bd);border-radius:var(--r10);padding:11px 15px;font-size:14px;font-family:'Plus Jakarta Sans',sans-serif;outline:none;transition:all .2s;background:var(--wh);color:var(--dk)}
+.inp:focus{border-color:var(--p);box-shadow:0 0 0 3px var(--p20)}
+.inp::placeholder{color:var(--bd2)}
+.inp-group{position:relative}
+.inp-icon{position:absolute;left:14px;top:50%;transform:translateY(-50%);font-size:16px;pointer-events:none}
+.inp-icon+.inp{padding-left:42px}
+.lbl{display:block;font-size:12px;font-weight:700;color:var(--mid);margin-bottom:5px;letter-spacing:.3px}
+.fg{margin-bottom:1rem}
+.err{font-size:12px;color:var(--r);margin-top:4px;display:none}
+.err.show{display:block}
+/* CARDS */
+.card{background:var(--wh);border-radius:var(--r14);box-shadow:var(--sh);padding:1.5rem;border:1px solid var(--bd)}
+.card-hover{transition:all .25s}
+.card-hover:hover{transform:translateY(-4px);box-shadow:var(--shm);border-color:var(--p)}
+/* TAGS */
+.tag{display:inline-flex;align-items:center;gap:4px;padding:3px 10px;border-radius:var(--r50);font-size:11px;font-weight:700;letter-spacing:.3px}
+.tag-p{background:var(--pp);color:var(--p)}.tag-g{background:#d1fae5;color:#065f46}
+.tag-r{background:#fee2e2;color:#991b1b}.tag-b{background:#dbeafe;color:#1e40af}
+.tag-y{background:#fef3c7;color:#92400e}.tag-pu{background:#ede9fe;color:#5b21b6}
+.tag-mid{background:var(--lt2);color:var(--mid)}
+/* MODAL */
+.overlay{display:none;position:fixed;inset:0;background:rgba(15,23,42,.6);z-index:3000;align-items:center;justify-content:center;padding:1rem;backdrop-filter:blur(4px)}
+.overlay.open{display:flex;animation:fadeIn .2s ease}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.modal{background:var(--wh);border-radius:var(--r20);width:100%;max-width:460px;max-height:92vh;overflow-y:auto;box-shadow:var(--shl);animation:slideUp .25s ease}
+@keyframes slideUp{from{transform:translateY(20px);opacity:0}to{transform:translateY(0);opacity:1}}
+.modal-lg{max-width:640px}
+.modal-head{padding:1.5rem 1.5rem 1rem;border-bottom:1px solid var(--bd);display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;background:var(--wh);z-index:1;border-radius:var(--r20) var(--r20) 0 0}
+.modal-head h3{font-size:18px;font-weight:800}
+.modal-x{width:32px;height:32px;border-radius:50%;border:none;background:var(--lt2);cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;color:var(--mid);transition:all .2s}
+.modal-x:hover{background:var(--bd);color:var(--dk)}
+.modal-body{padding:1.5rem}
+/* TOAST */
+#toast-stack{position:fixed;bottom:1.5rem;right:1.5rem;z-index:9999;display:flex;flex-direction:column;gap:.5rem;pointer-events:none;max-width:320px}
+.toast{background:var(--dk);color:#fff;padding:12px 18px;border-radius:var(--r10);font-size:13px;font-weight:600;box-shadow:var(--shl);display:flex;align-items:center;gap:8px;pointer-events:all;transform:translateX(120%);transition:transform .35s cubic-bezier(.4,0,.2,1);border-left:4px solid var(--p)}
+.toast.show{transform:translateX(0)}
+.toast.success{border-color:var(--g)}.toast.error{border-color:var(--r)}.toast.info{border-color:var(--b)}
+/* TOGGLE */
+.sw{position:relative;display:inline-block;width:42px;height:24px}
+.sw input{opacity:0;width:0;height:0}
+.sw-track{position:absolute;cursor:pointer;inset:0;background:var(--bd2);border-radius:24px;transition:.25s}
+.sw-track:before{content:'';position:absolute;height:18px;width:18px;left:3px;bottom:3px;background:#fff;border-radius:50%;transition:.25s;box-shadow:0 1px 3px rgba(0,0,0,.2)}
+.sw input:checked+.sw-track{background:var(--p)}
+.sw input:checked+.sw-track:before{transform:translateX(18px)}
+/* TABLE */
+.tbl-wrap{background:var(--wh);border-radius:var(--r14);border:1px solid var(--bd);overflow:hidden}
+.tbl-head{padding:1rem 1.25rem;border-bottom:1px solid var(--bd);display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.tbl-head h3{font-size:15px;font-weight:800}
+table{width:100%;border-collapse:collapse}
+thead tr{background:var(--lt)}
+th{padding:.65rem 1rem;text-align:left;font-size:11px;font-weight:800;color:var(--mid);text-transform:uppercase;letter-spacing:.5px;border-bottom:1px solid var(--bd);white-space:nowrap}
+td{padding:.75rem 1rem;font-size:13.5px;border-bottom:1px solid var(--bd);vertical-align:middle}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:hover{background:var(--lt)}
+.td-with-img{display:flex;align-items:center;gap:.75rem}
+.td-thumb{width:38px;height:38px;border-radius:var(--r6);overflow:hidden;flex-shrink:0;background:var(--lt2)}
+.td-thumb img{width:100%;height:100%;object-fit:cover}
+.td-thumb-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:18px}
+.act{display:flex;gap:.35rem;align-items:center}
+.act-btn{width:30px;height:30px;border-radius:var(--r6);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:13px;transition:all .18s}
+.ae{background:#dbeafe;color:#1e40af}.ae:hover{background:#bfdbfe}
+.ad{background:#fee2e2;color:#991b1b}.ad:hover{background:#fecaca}
+.av{background:#d1fae5;color:#065f46}.av:hover{background:#a7f3d0}
+/* PERM GRID */
+.pg{display:grid;grid-template-columns:1fr 1fr;gap:.5rem}
+.pi{display:flex;align-items:center;justify-content:space-between;padding:.65rem .9rem;background:var(--lt);border-radius:var(--r10);font-size:13px;font-weight:500;border:1px solid var(--bd)}
+/* IMG UPLOAD */
+.upzone{border:2px dashed var(--bd2);border-radius:var(--r14);padding:2rem;text-align:center;cursor:pointer;transition:all .2s;position:relative;overflow:hidden;background:var(--lt)}
+.upzone:hover{border-color:var(--p);background:var(--pp)}
+.upzone input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
+.upzone-icon{font-size:36px;margin-bottom:.5rem}
+.upzone p{font-size:13px;color:var(--mid)}
+.upzone em{font-size:11px;color:var(--p);font-weight:700;font-style:normal}
+/* OTP */
+.otp-row{display:flex;gap:.5rem;justify-content:center}
+.otp-inp{width:48px;height:56px;border:2px solid var(--bd);border-radius:var(--r10);text-align:center;font-size:22px;font-weight:800;outline:none;transition:all .2s;font-family:'Plus Jakarta Sans',sans-serif;color:var(--dk)}
+.otp-inp:focus{border-color:var(--p);box-shadow:0 0 0 3px var(--p20)}
+/* STAT CARDS */
+.stat{background:var(--wh);border-radius:var(--r14);padding:1.25rem;border:1px solid var(--bd);position:relative;overflow:hidden}
+.stat::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--p)}
+.stat.green::before{background:var(--g)}.stat.blue::before{background:var(--b)}
+.stat.yellow::before{background:var(--y)}.stat.purple::before{background:var(--pu)}
+.stat-val{font-family:'Playfair Display',serif;font-size:34px;font-weight:700;color:var(--dk);line-height:1}
+.stat-lbl{font-size:12px;color:var(--mid);margin-top:4px;font-weight:600}
+.stat-delta{display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:700;margin-top:6px;padding:2px 7px;border-radius:20px}
+.stat-delta.up{background:#d1fae5;color:#065f46}.stat-delta.dn{background:#fee2e2;color:#991b1b}
+/* GRID UTILS */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.g5{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem}
+/* NOTIFICATION */
+.notif-item{display:flex;align-items:flex-start;gap:.75rem;padding:.9rem 1rem;border-bottom:1px solid var(--bd);transition:background .15s;cursor:pointer}
+.notif-item:hover{background:var(--lt)}
+.notif-item.unread{background:var(--pp)}
+.notif-dot{width:8px;height:8px;border-radius:50%;background:var(--p);flex-shrink:0;margin-top:5px}
+.notif-dot.read{background:var(--bd2)}
+/* ANALYTICS CHART */
+.chart-bar-wrap{display:flex;align-items:flex-end;gap:4px;height:100px}
+.chart-bar{flex:1;background:var(--p);border-radius:4px 4px 0 0;transition:all .4s;position:relative;min-width:0}
+.chart-bar:hover{background:var(--pd)}
+.chart-bar::after{content:attr(data-val);position:absolute;top:-20px;left:50%;transform:translateX(-50%);font-size:10px;font-weight:700;color:var(--mid);white-space:nowrap}
+/* TOP NAV */
+#nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:62px;background:rgba(255,255,255,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--bd);display:flex;align-items:center;justify-content:space-between;padding:0 1.5rem;box-shadow:0 1px 12px rgba(0,0,0,.04)}
+.nav-logo{display:flex;align-items:center;gap:10px;cursor:pointer;text-decoration:none}
+.nav-logo-box{width:38px;height:38px;border-radius:10px;background:var(--p);display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0}
+.nav-logo-box img{width:100%;height:100%;object-fit:cover}
+.nav-logo-box-ph{font-size:22px}
+.nav-brand{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--p);letter-spacing:-.3px}
+.nav-links{display:flex;gap:2px}
+.nav-lnk{padding:8px 14px;border-radius:var(--r10);font-size:14px;font-weight:600;color:var(--mid);cursor:pointer;border:none;background:transparent;font-family:'Plus Jakarta Sans',sans-serif;transition:all .2s;white-space:nowrap}
+.nav-lnk:hover,.nav-lnk.on{background:var(--pp);color:var(--p)}
+.nav-right{display:flex;align-items:center;gap:.5rem}
+.nav-search{display:flex;align-items:center;background:var(--lt2);border:1.5px solid var(--bd);border-radius:var(--r50);padding:7px 14px;gap:8px;transition:all .2s}
+.nav-search:focus-within{border-color:var(--p);background:var(--wh)}
+.nav-search input{border:none;background:transparent;font-size:13px;outline:none;width:140px;font-family:'Plus Jakarta Sans',sans-serif;color:var(--dk)}
+.nav-search input::placeholder{color:var(--bd2)}
+.upill{display:flex;align-items:center;gap:8px;padding:5px 12px 5px 5px;border-radius:var(--r50);border:1.5px solid var(--bd);cursor:pointer;transition:all .2s;background:var(--wh)}
+.upill:hover{border-color:var(--p);background:var(--pp)}
+.uav{width:32px;height:32px;border-radius:50%;background:var(--p);display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;font-weight:800;overflow:hidden;flex-shrink:0}
+.uav img{width:100%;height:100%;object-fit:cover}
+.uav-name{font-size:13px;font-weight:700;color:var(--dk)}
+.uav-role{font-size:10px;color:var(--mid);line-height:1}
+/* USER DROPDOWN */
+#udrop{position:fixed;top:66px;right:1.5rem;background:var(--wh);border-radius:var(--r14);box-shadow:var(--shl);z-index:1100;min-width:200px;padding:.5rem;border:1px solid var(--bd);animation:slideUp .18s ease}
+.udrop-item{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:var(--r10);cursor:pointer;font-size:14px;font-weight:600;color:var(--dk3);transition:all .18s;border:none;background:none;font-family:'Plus Jakarta Sans',sans-serif;width:100%;text-align:left}
+.udrop-item:hover{background:var(--lt2);color:var(--p)}
+.udrop-item .ico{font-size:18px;width:20px;text-align:center}
+/* SIDEBAR */
+#sidebar{position:fixed;top:62px;left:0;bottom:0;width:232px;background:var(--wh);border-right:1px solid var(--bd);overflow-y:auto;z-index:900;padding:.75rem 0;transition:transform .28s cubic-bezier(.4,0,.2,1)}
+#sidebar.closed{transform:translateX(-232px)}
+.sb-sect{padding:.5rem .75rem;margin-top:.25rem}
+.sb-sect-lbl{font-size:10px;font-weight:800;color:var(--bd2);letter-spacing:1.2px;text-transform:uppercase;padding:0 .6rem;margin-bottom:.3rem}
+.sb-item{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:var(--r10);cursor:pointer;font-size:13.5px;font-weight:600;color:var(--mid);transition:all .18s;width:100%;border:none;background:none;font-family:'Plus Jakarta Sans',sans-serif;text-align:left}
+.sb-item:hover{background:var(--lt2);color:var(--dk)}
+.sb-item.on{background:var(--pp);color:var(--p)}
+.sb-item .sico{font-size:17px;width:21px;text-align:center;flex-shrink:0}
+.sb-badge{margin-left:auto;background:var(--p);color:#fff;padding:2px 7px;border-radius:20px;font-size:10px;font-weight:800}
+/* MAIN */
+#main{margin-left:232px;margin-top:62px;padding:1.75rem;min-height:calc(100vh - 62px);transition:margin-left .28s cubic-bezier(.4,0,.2,1)}
+#main.full{margin-left:0}
+/* PRODUCT CARDS */
+.prod-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem}
+.prod-card{background:var(--wh);border-radius:var(--r14);overflow:hidden;border:1.5px solid var(--bd);cursor:pointer;transition:all .22s}
+.prod-card:hover{border-color:var(--p);transform:translateY(-4px);box-shadow:var(--shm)}
+.prod-img{aspect-ratio:1;background:var(--lt2);position:relative;overflow:hidden}
+.prod-img img{width:100%;height:100%;object-fit:cover;transition:transform .3s}
+.prod-card:hover .prod-img img{transform:scale(1.06)}
+.prod-img-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#fef3ec,#fde8d8);position:relative}
+.prod-img-ph-icon{font-size:72px;opacity:.4}
+.prod-img-ph-text{position:absolute;bottom:.5rem;left:.5rem;right:.5rem;text-align:center;font-size:11px;color:var(--mid);font-weight:600}
+.prod-badge-wrap{position:absolute;top:8px;left:8px;z-index:1}
+.prod-wish{position:absolute;top:8px;right:8px;z-index:1;width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.9);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:15px;transition:all .2s;box-shadow:0 2px 8px rgba(0,0,0,.1)}
+.prod-wish:hover{transform:scale(1.15);background:#fff}
+.prod-info{padding:1rem}
+.prod-cat{font-size:10px;color:var(--p);font-weight:800;text-transform:uppercase;letter-spacing:.5px;margin-bottom:3px}
+.prod-name{font-size:14px;font-weight:700;margin-bottom:5px;line-height:1.3;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;color:var(--dk)}
+.prod-stars{color:#F59E0B;font-size:11px;margin-bottom:5px}
+.prod-stars span{color:var(--mid);font-size:10px;margin-left:3px}
+.prod-foot{display:flex;align-items:center;justify-content:space-between;gap:.4rem}
+.prod-price{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--p)}
+.prod-old{font-size:11px;color:var(--bd2);text-decoration:line-through;margin-left:3px}
+.prod-add{background:var(--p);color:#fff;border:none;border-radius:var(--r6);padding:6px 11px;font-size:12px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;transition:all .18s}
+.prod-add:hover{background:var(--pd);transform:scale(1.05)}
+/* HERO */
+.hero-strip{border-radius:var(--r20);background:linear-gradient(135deg,var(--dk) 0%,var(--dk2) 55%,#1a3a5c 100%);padding:3rem 2.5rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;margin-bottom:1.75rem;position:relative;overflow:hidden}
+.hero-strip::before{content:'';position:absolute;top:-80px;right:-80px;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle,rgba(255,107,53,.15),transparent 70%)}
+.hero-strip::after{content:'';position:absolute;bottom:-60px;left:15%;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(59,130,246,.08),transparent 70%)}
+.hero-inner{position:relative;z-index:1;max-width:520px}
+.hero-eyebrow{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--y);margin-bottom:.75rem;font-weight:700;display:flex;align-items:center;gap:6px}
+.hero-h1{font-family:'Playfair Display',serif;font-size:clamp(30px,4.5vw,50px);font-weight:700;color:#fff;line-height:1.15;margin-bottom:.9rem;letter-spacing:-.02em}
+.hero-h1 em{color:var(--pl);font-style:normal}
+.hero-p{color:rgba(255,255,255,.6);font-size:15px;margin-bottom:1.5rem;line-height:1.65;max-width:440px}
+/* CATEGORY STRIP */
+.cat-scroll{display:flex;gap:.75rem;overflow-x:auto;padding-bottom:8px;scrollbar-width:none;margin-bottom:1.75rem}
+.cat-scroll::-webkit-scrollbar{display:none}
+.cat-chip{flex-shrink:0;display:flex;align-items:center;gap:8px;padding:10px 18px;border-radius:var(--r50);background:var(--wh);border:1.5px solid var(--bd);cursor:pointer;font-size:13.5px;font-weight:700;transition:all .2s;white-space:nowrap;color:var(--dk)}
+.cat-chip:hover,.cat-chip.on{background:var(--p);color:#fff;border-color:var(--p);box-shadow:0 4px 12px rgba(255,107,53,.25)}
+.cat-chip img{width:22px;height:22px;border-radius:50%;object-fit:cover}
+/* CART */
+.cart-layout{display:grid;grid-template-columns:1fr 340px;gap:1.5rem;align-items:start}
+.cart-item{display:flex;gap:1rem;padding:1.1rem;background:var(--wh);border-radius:var(--r14);border:1px solid var(--bd);margin-bottom:.75rem;align-items:center}
+.cart-item-img{width:76px;height:76px;border-radius:var(--r10);overflow:hidden;flex-shrink:0;background:var(--lt2)}
+.cart-item-img img{width:100%;height:100%;object-fit:cover}
+.order-sum{background:var(--wh);border-radius:var(--r14);border:1px solid var(--bd);padding:1.5rem;position:sticky;top:78px}
+.sum-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:.6rem;font-size:14px}
+.sum-row.total{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--p);border-top:2px solid var(--bd);padding-top:.75rem;margin-top:.25rem}
+/* PROFILE */
+.profile-grid{display:grid;grid-template-columns:240px 1fr;gap:1.5rem;align-items:start}
+.profile-sb{background:var(--wh);border-radius:var(--r14);border:1px solid var(--bd);padding:1.5rem;position:sticky;top:78px}
+.pav-wrap{text-align:center;margin-bottom:1.25rem}
+.pav-big{width:80px;height:80px;border-radius:50%;overflow:hidden;margin:0 auto .75rem;border:3px solid var(--pp);cursor:pointer;position:relative;background:var(--p);display:flex;align-items:center;justify-content:center;color:#fff;font-size:30px;font-weight:800}
+.pav-big img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:50%}
+.pnav-item{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:var(--r10);cursor:pointer;font-size:13.5px;font-weight:600;color:var(--mid);transition:all .18s;border:none;background:none;font-family:'Plus Jakarta Sans',sans-serif;width:100%;text-align:left}
+.pnav-item:hover{background:var(--lt2);color:var(--dk)}
+.pnav-item.on{background:var(--pp);color:var(--p)}
+/* DETAIL */
+.detail-layout{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start}
+.detail-main-img{border-radius:var(--r14);overflow:hidden;aspect-ratio:1;background:var(--lt2)}
+.detail-main-img img{width:100%;height:100%;object-fit:cover}
+.detail-thumbs{display:flex;gap:.5rem;margin-top:.5rem}
+.dthumb{width:58px;height:58px;border-radius:var(--r10);overflow:hidden;cursor:pointer;border:2px solid var(--bd);transition:all .18s}
+.dthumb:hover,.dthumb.on{border-color:var(--p)}
+.dthumb img{width:100%;height:100%;object-fit:cover}
+/* QTY */
+.qty-ctrl{display:flex;align-items:center;border:1.5px solid var(--bd);border-radius:var(--r10);overflow:hidden}
+.qb{width:36px;height:36px;border:none;background:var(--lt2);cursor:pointer;font-size:18px;font-weight:700;transition:background .18s;display:flex;align-items:center;justify-content:center;color:var(--dk)}
+.qb:hover{background:var(--pp);color:var(--p)}
+.qv{width:44px;text-align:center;font-size:15px;font-weight:800;background:#fff;border-left:1px solid var(--bd);border-right:1px solid var(--bd);padding:9px 0;color:var(--dk)}
+/* FOOTER */
+footer{background:var(--dk);color:rgba(255,255,255,.55)}
+.footer-grid{max-width:1200px;margin:0 auto;padding:3.5rem 2rem 2rem;display:grid;grid-template-columns:2fr 1fr 1fr 1.5fr;gap:2.5rem}
+.ft-brand{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:var(--p);margin-bottom:.75rem;display:flex;align-items:center;gap:10px}
+.ft-brand-logo{width:38px;height:38px;border-radius:10px;overflow:hidden;background:var(--p);display:flex;align-items:center;justify-content:center}
+.ft-brand-logo img{width:100%;height:100%;object-fit:cover}
+.ft-col h4{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,.8);margin-bottom:1rem}
+.ft-col ul{list-style:none}
+.ft-col ul li{margin-bottom:8px}
+.ft-col ul li a{color:rgba(255,255,255,.5);text-decoration:none;font-size:13px;cursor:pointer;transition:color .18s}
+.ft-col ul li a:hover{color:var(--p)}
+.ft-contact{display:flex;gap:8px;font-size:13px;margin-bottom:8px;color:rgba(255,255,255,.5);align-items:flex-start;line-height:1.5}
+.ft-bottom{max-width:1200px;margin:0 auto;padding:1.25rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem;border-top:1px solid rgba(255,255,255,.08)}
+.ft-copy{font-size:12px;color:rgba(255,255,255,.3)}
+/* LANDING PAGE SPECIFIC */
+.landing-nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;transition:all .3s}
+.landing-nav.scrolled{background:rgba(255,255,255,.95);backdrop-filter:blur(16px);box-shadow:0 1px 12px rgba(0,0,0,.06);padding:.75rem 2rem}
+.lnav-logo{display:flex;align-items:center;gap:10px}
+.lnav-logo-box{width:40px;height:40px;border-radius:10px;overflow:hidden;background:var(--p);display:flex;align-items:center;justify-content:center}
+.lnav-brand{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--p)}
+.lnav-links{display:flex;gap:1.5rem;align-items:center}
+.lnav-link{font-size:14px;font-weight:600;color:rgba(255,255,255,.85);text-decoration:none;cursor:pointer;transition:color .2s}
+.landing-nav.scrolled .lnav-link{color:var(--mid)}
+.lnav-link:hover{color:var(--p)}
+/* HERO SECTIONS */
+.cust-hero{min-height:100vh;background:linear-gradient(135deg,var(--dk) 0%,var(--dk2) 50%,#162032 100%);display:flex;align-items:center;padding:6rem 2rem 4rem;position:relative;overflow:hidden}
+.cust-hero::before{content:'';position:absolute;top:0;right:0;width:55%;height:100%;background:radial-gradient(ellipse at 80% 50%,rgba(255,107,53,.12) 0%,transparent 60%)}
+.cust-hero::after{content:'';position:absolute;bottom:0;left:0;width:40%;height:60%;background:radial-gradient(ellipse at 20% 80%,rgba(59,130,246,.07) 0%,transparent 60%)}
+.owner-hero{min-height:100vh;background:linear-gradient(135deg,#0F2027 0%,#203A43 50%,#2C5364 100%);display:flex;align-items:center;padding:6rem 2rem 4rem;position:relative;overflow:hidden}
+.owner-hero::before{content:'';position:absolute;top:0;right:0;width:50%;height:100%;background:radial-gradient(ellipse at 70% 40%,rgba(139,92,246,.12) 0%,transparent 60%)}
+.section{padding:5rem 2rem}
+.section-center{text-align:center;margin-bottom:3rem}
+.feature-card{background:var(--wh);border-radius:var(--r14);padding:1.75rem;border:1px solid var(--bd);transition:all .25s}
+.feature-card:hover{transform:translateY(-4px);box-shadow:var(--shm);border-color:var(--p)}
+.feat-icon{width:52px;height:52px;border-radius:var(--r14);background:var(--pp);display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:1rem}
+/* OWNER LANDING */
+.ob-card{background:rgba(255,255,255,.05);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.1);border-radius:var(--r14);padding:1.5rem}
+.step-num{width:48px;height:48px;border-radius:50%;background:var(--p);color:#fff;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:800;flex-shrink:0;font-family:'Playfair Display',serif}
+/* ADMIN AUTH */
+.admin-auth-wrap{min-height:100vh;background:linear-gradient(135deg,#0F0F23 0%,#1a1a3e 50%,#0F1629 100%);display:flex;align-items:center;justify-content:center;padding:2rem;position:relative;overflow:hidden}
+.admin-auth-wrap::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 25% 25%,rgba(139,92,246,.06) 0%,transparent 40%),radial-gradient(circle at 75% 75%,rgba(59,130,246,.06) 0%,transparent 40%)}
+.admin-box{background:rgba(255,255,255,.04);backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,.08);border-radius:24px;padding:3rem;width:100%;max-width:420px;box-shadow:0 32px 80px rgba(0,0,0,.4)}
+.admin-box .inp{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.12);color:#fff}
+.admin-box .inp::placeholder{color:rgba(255,255,255,.3)}
+.admin-box .inp:focus{border-color:rgba(139,92,246,.6);box-shadow:0 0 0 3px rgba(139,92,246,.15)}
+/* NOTIFICATION BADGE */
+.notif-bell{position:relative}
+.notif-ring{position:absolute;top:-4px;right:-4px;width:16px;height:16px;border-radius:50%;background:var(--r);color:#fff;font-size:9px;font-weight:800;display:flex;align-items:center;justify-content:center;border:2px solid #fff}
+/* RESPONSIVE */
+@media(max-width:900px){
+  #sidebar{transform:translateX(-232px)}#sidebar.mob-open{transform:translateX(0)!important}
+  #main{margin-left:0}
+  .g2,.g3,.g4,.g5{grid-template-columns:1fr 1fr}
+  .cart-layout{grid-template-columns:1fr}
+  .order-sum{position:static}
+  .detail-layout{grid-template-columns:1fr}
+  .profile-grid{grid-template-columns:1fr}
+  .profile-sb{position:static}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+  #main{padding:1rem}
+  .g2,.g3,.g4,.g5{grid-template-columns:1fr}
+  .nav-links{display:none}.nav-search{display:none}
+  .lnav-links{gap:.75rem}
+  .footer-grid{grid-template-columns:1fr}
+  .hero-strip{padding:2rem 1.25rem}
+  .section{padding:3rem 1.25rem}
+  .cust-hero,.owner-hero{padding:5rem 1.25rem 3rem}
+}
+</style>
+</head>
+<body>
+<!-- TOAST STACK -->
+<div id="toast-stack"></div>
+
+<!-- ═══════════════════════════════════════════
+     SCREEN 1: CUSTOMER LANDING PAGE
+═══════════════════════════════════════════ -->
+<div id="screen-cust-landing">
+  <!-- Landing Nav -->
+  <nav class="landing-nav" id="cust-lnav">
+    <div class="lnav-logo">
+      <div class="lnav-logo-box" id="ll-logo-box"><div id="ll-logo-ph" style="font-size:22px">🧸</div></div>
+      <span class="lnav-brand" id="ll-brand-name">EDWANIKSTORE</span>
+    </div>
+    <div class="lnav-links">
+      <a class="lnav-link" onclick="scrollToId('ll-products')">Products</a>
+      <a class="lnav-link" onclick="scrollToId('ll-categories')">Categories</a>
+      <a class="lnav-link" onclick="scrollToId('ll-offers')">Offers</a>
+      <a class="lnav-link" onclick="scrollToId('ll-about')">About</a>
+      <button class="btn btn-primary btn-sm" onclick="showScreen('screen-cust-auth')">Login / Register</button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <div class="cust-hero">
+    <div style="max-width:1200px;width:100%;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;position:relative;z-index:1">
+      <div style="max-width:520px">
+        <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,215,0,.12);border:1px solid rgba(255,215,0,.2);border-radius:50px;padding:6px 14px;margin-bottom:1.5rem">
+          <span style="font-size:14px">🎉</span>
+          <span style="font-size:12px;font-weight:700;color:#FFD700;letter-spacing:.5px">INDIA'S MOST TRUSTED TOY STORE</span>
+        </div>
+        <h1 class="h1" style="color:#fff;margin-bottom:1rem">Where <em style="color:var(--pl)">Joy</em> Meets Every <em style="color:var(--y)">Childhood</em></h1>
+        <p style="color:rgba(255,255,255,.6);font-size:16px;line-height:1.7;margin-bottom:2rem;max-width:440px">Safe, educational and endlessly fun toys for every age. Trusted by 10,000+ happy families across India.</p>
+        <div style="display:flex;gap:1rem;flex-wrap:wrap">
+          <button class="btn btn-primary btn-lg" onclick="showScreen('screen-cust-auth')">🛍️ Shop Now</button>
+          <button class="btn btn-ghost btn-lg" onclick="scrollToId('ll-products')">View Collection</button>
+        </div>
+        <div style="display:flex;gap:2rem;margin-top:2rem;flex-wrap:wrap">
+          <div style="text-align:center"><div style="font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:#fff">10K+</div><div style="font-size:12px;color:rgba(255,255,255,.5)">Happy Families</div></div>
+          <div style="width:1px;background:rgba(255,255,255,.1)"></div>
+          <div style="text-align:center"><div style="font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:#fff">500+</div><div style="font-size:12px;color:rgba(255,255,255,.5)">Products</div></div>
+          <div style="width:1px;background:rgba(255,255,255,.1)"></div>
+          <div style="text-align:center"><div style="font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:#fff">4.9★</div><div style="font-size:12px;color:rgba(255,255,255,.5)">Avg Rating</div></div>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:260px">
+        <div style="background:rgba(255,255,255,.07);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:1.25rem;text-align:center">
+          <div style="font-size:38px;margin-bottom:6px">🧸</div><div style="font-size:12px;color:rgba(255,255,255,.7);font-weight:600">Plushies</div>
+        </div>
+        <div style="background:rgba(255,255,255,.07);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:1.25rem;text-align:center">
+          <div style="font-size:38px;margin-bottom:6px">🚗</div><div style="font-size:12px;color:rgba(255,255,255,.7);font-weight:600">Vehicles</div>
+        </div>
+        <div style="background:rgba(255,255,255,.07);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:1.25rem;text-align:center">
+          <div style="font-size:38px;margin-bottom:6px">🎮</div><div style="font-size:12px;color:rgba(255,255,255,.7);font-weight:600">Games</div>
+        </div>
+        <div style="background:rgba(255,255,255,.07);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:1.25rem;text-align:center">
+          <div style="font-size:38px;margin-bottom:6px">🎨</div><div style="font-size:12px;color:rgba(255,255,255,.7);font-weight:600">Creative</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Products Preview -->
+  <div class="section" id="ll-products" style="max-width:1200px;margin:0 auto">
+    <div class="section-center">
+      <div class="label" style="margin-bottom:.5rem">Featured Collection</div>
+      <h2 class="h2">Toys Kids <em style="color:var(--p)">Love</em></h2>
+      <p style="color:var(--mid);margin-top:.75rem;font-size:15px">Hand-picked favourites trusted by thousands of parents</p>
+    </div>
+    <div class="prod-grid" id="ll-prod-grid"></div>
+    <div style="text-align:center;margin-top:2rem">
+      <button class="btn btn-outline btn-lg" onclick="showScreen('screen-cust-auth')">View All Products →</button>
+    </div>
+  </div>
+
+  <!-- Categories -->
+  <div class="section" id="ll-categories" style="background:var(--lt2)">
+    <div style="max-width:1200px;margin:0 auto">
+      <div class="section-center">
+        <div class="label" style="margin-bottom:.5rem">Browse By Category</div>
+        <h2 class="h2">Find Perfect Toys</h2>
+      </div>
+      <div class="g3" id="ll-cats-grid" style="gap:1.25rem"></div>
+    </div>
+  </div>
+
+  <!-- Offers -->
+  <div class="section" id="ll-offers">
+    <div style="max-width:1200px;margin:0 auto">
+      <div style="background:linear-gradient(135deg,var(--p),var(--pd));border-radius:var(--r20);padding:3rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem">
+        <div>
+          <div style="font-size:12px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:.75rem">Limited Time Offer</div>
+          <h2 style="font-family:'Playfair Display',serif;font-size:36px;font-weight:700;color:#fff;margin-bottom:.75rem">Up to <span style="color:var(--y)">40% OFF</span> This Week!</h2>
+          <p style="color:rgba(255,255,255,.8);font-size:15px">On selected toys across all categories. Don't miss out!</p>
+        </div>
+        <button class="btn btn-white btn-lg" onclick="showScreen('screen-cust-auth')">Shop the Sale →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Features -->
+  <div class="section" id="ll-about" style="background:var(--lt2)">
+    <div style="max-width:1200px;margin:0 auto">
+      <div class="section-center">
+        <div class="label" style="margin-bottom:.5rem">Why EDWANIKSTORE?</div>
+        <h2 class="h2">Built Around Your Child's <em style="color:var(--p)">Joy</em></h2>
+      </div>
+      <div class="g4">
+        <div class="feature-card"><div class="feat-icon">🛡️</div><h4 style="font-weight:800;margin-bottom:.5rem">Safety Certified</h4><p style="font-size:13px;color:var(--mid);line-height:1.6">Every toy meets strict international safety standards. Your child's safety is our top priority.</p></div>
+        <div class="feature-card"><div class="feat-icon">💰</div><h4 style="font-weight:800;margin-bottom:.5rem">Best Prices</h4><p style="font-size:13px;color:var(--mid);line-height:1.6">Direct from manufacturers. No middlemen means more savings for you every time.</p></div>
+        <div class="feature-card"><div class="feat-icon">🚀</div><h4 style="font-weight:800;margin-bottom:.5rem">Fast Delivery</h4><p style="font-size:13px;color:var(--mid);line-height:1.6">Quick dispatch, reliable delivery nationwide. Your order tracked from door to door.</p></div>
+        <div class="feature-card"><div class="feat-icon">💬</div><h4 style="font-weight:800;margin-bottom:.5rem">WhatsApp Orders</h4><p style="font-size:13px;color:var(--mid);line-height:1.6">Personal support on WhatsApp. Real humans ready to help you find the perfect toy.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA Footer -->
+  <div style="background:var(--dk);padding:4rem 2rem;text-align:center">
+    <h2 class="h2" style="color:#fff;margin-bottom:1rem">Ready to Start Shopping?</h2>
+    <p style="color:rgba(255,255,255,.55);margin-bottom:2rem;font-size:15px">Join 10,000+ happy families. Register free today!</p>
+    <button class="btn btn-primary btn-lg" onclick="showScreen('screen-cust-auth')">Create Free Account →</button>
+    <div style="margin-top:1.5rem;font-size:13px;color:rgba(255,255,255,.3)">Are you a shop owner? <a onclick="showScreen('screen-owner-landing')" style="color:var(--p);cursor:pointer;font-weight:700">Visit Owner Portal →</a></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SCREEN 2: CUSTOMER AUTH
+═══════════════════════════════════════════ -->
+<div id="screen-cust-auth" class="hide" style="min-height:100vh;background:linear-gradient(135deg,var(--dk) 0%,var(--dk2) 100%);display:flex;align-items:center;justify-content:center;padding:2rem">
+  <div style="background:var(--wh);border-radius:24px;padding:2.5rem;width:100%;max-width:420px;box-shadow:var(--shl)">
+    <div style="text-align:center;margin-bottom:2rem">
+      <div id="ca-logo-box" style="width:64px;height:64px;border-radius:16px;background:var(--p);display:flex;align-items:center;justify-content:center;font-size:30px;margin:0 auto 10px;overflow:hidden">
+        <span id="ca-logo-ph">🧸</span>
+      </div>
+      <div style="font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:var(--dk)" id="ca-brand">EDWANIKSTORE</div>
+      <div style="font-size:13px;color:var(--mid);margin-top:3px">Customer Portal</div>
+    </div>
+
+    <!-- Tabs -->
+    <div style="display:flex;background:var(--lt2);border-radius:var(--r10);padding:4px;margin-bottom:1.5rem;gap:4px">
+      <button id="ca-tab-login" style="flex:1;padding:9px;border:none;background:var(--wh);border-radius:var(--r6);font-size:14px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;color:var(--p);box-shadow:var(--sh)" onclick="swCustTab('login')">Login</button>
+      <button id="ca-tab-reg" style="flex:1;padding:9px;border:none;background:transparent;border-radius:var(--r6);font-size:14px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;color:var(--mid)" onclick="swCustTab('reg')">Register</button>
+    </div>
+
+    <!-- Login Form -->
+    <div id="ca-login">
+      <div class="fg"><label class="lbl">Email or Mobile Number</label><div class="inp-group"><span class="inp-icon">📧</span><input class="inp" id="cl-email" type="text" placeholder="email@example.com or 9876543210"/></div></div>
+      <div class="fg"><label class="lbl">Password</label><div class="inp-group"><span class="inp-icon">🔒</span><input class="inp" id="cl-pass" type="password" placeholder="Your password"/></div></div>
+      <button class="btn btn-primary" style="width:100%;justify-content:center;margin-top:.5rem" onclick="custLogin()">Login →</button>
+      <div style="text-align:center;margin-top:1rem;font-size:13px;color:var(--mid)">Demo: arjun@example.com / cust123</div>
+    </div>
+
+    <!-- Register Form -->
+    <div id="ca-reg" class="hide">
+      <div id="ca-reg-step1">
+        <div class="g2" style="gap:.75rem">
+          <div class="fg"><label class="lbl">First Name *</label><input class="inp" id="cr-fn" placeholder="John"/></div>
+          <div class="fg"><label class="lbl">Last Name</label><input class="inp" id="cr-ln" placeholder="Doe"/></div>
+        </div>
+        <div class="fg"><label class="lbl">Email *</label><input class="inp" id="cr-email" type="email" placeholder="your@email.com"/></div>
+        <div class="fg"><label class="lbl">Mobile</label><input class="inp" id="cr-mob" type="tel" placeholder="+91 9876543210"/></div>
+        <div class="fg"><label class="lbl">Password *</label><input class="inp" id="cr-pass" type="password" placeholder="Min 8 characters"/></div>
+        <button class="btn btn-primary" style="width:100%;justify-content:center" onclick="sendOTP()">Send OTP to Email →</button>
+      </div>
+      <div id="ca-reg-step2" class="hide">
+        <div style="text-align:center;margin-bottom:1.5rem">
+          <div style="font-size:36px;margin-bottom:.5rem">📧</div>
+          <h3 style="font-weight:800;margin-bottom:.5rem">Verify Your Email</h3>
+          <p style="font-size:13px;color:var(--mid)" id="otp-sent-to">OTP sent to your email</p>
+        </div>
+        <div class="otp-row" id="otp-inputs">
+          <input class="otp-inp" maxlength="1" oninput="otpNext(this,0)" id="otp0"/>
+          <input class="otp-inp" maxlength="1" oninput="otpNext(this,1)" id="otp1"/>
+          <input class="otp-inp" maxlength="1" oninput="otpNext(this,2)" id="otp2"/>
+          <input class="otp-inp" maxlength="1" oninput="otpNext(this,3)" id="otp3"/>
+          <input class="otp-inp" maxlength="1" oninput="otpNext(this,4)" id="otp4"/>
+          <input class="otp-inp" maxlength="1" oninput="otpNext(this,5)" id="otp5"/>
+        </div>
+        <div style="text-align:center;margin:.75rem 0;font-size:13px;color:var(--mid)">Demo OTP: <strong>123456</strong></div>
+        <button class="btn btn-primary" style="width:100%;justify-content:center;margin-top:.5rem" onclick="verifyOTP()">Verify & Create Account →</button>
+        <button style="width:100%;background:none;border:none;cursor:pointer;font-size:13px;color:var(--mid);margin-top:.75rem;font-family:'Plus Jakarta Sans',sans-serif" onclick="document.getElementById('ca-reg-step1').classList.remove('hide');document.getElementById('ca-reg-step2').classList.add('hide')">← Change Email</button>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:1.25rem;font-size:13px;color:var(--mid)">
+      <a onclick="showScreen('screen-cust-landing')" style="color:var(--p);cursor:pointer;font-weight:600">← Back to Store</a>
+      &nbsp;·&nbsp;
+      <a onclick="showScreen('screen-owner-landing')" style="color:var(--mid);cursor:pointer">Owner Portal</a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SCREEN 3: OWNER LANDING PAGE
+═══════════════════════════════════════════ -->
+<div id="screen-owner-landing" class="hide">
+  <nav class="landing-nav scrolled" style="background:rgba(15,32,39,.96);backdrop-filter:blur(16px)">
+    <div class="lnav-logo">
+      <div class="lnav-logo-box" id="ol-logo-box"><span id="ol-logo-ph" style="font-size:22px">🧸</span></div>
+      <span style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--p)" id="ol-brand">EDWANIKSTORE</span>
+      <span style="background:rgba(139,92,246,.2);color:#a78bfa;font-size:10px;font-weight:800;padding:3px 8px;border-radius:20px;letter-spacing:.5px;margin-left:6px">OWNER PORTAL</span>
+    </div>
+    <div class="lnav-links">
+      <a class="lnav-link" style="color:rgba(255,255,255,.7)" onclick="scrollToId('ob-benefits')">Benefits</a>
+      <a class="lnav-link" style="color:rgba(255,255,255,.7)" onclick="scrollToId('ob-features')">Features</a>
+      <a class="lnav-link" style="color:rgba(255,255,255,.7)" onclick="scrollToId('ob-request')">Get Started</a>
+      <button class="btn btn-primary btn-sm" onclick="showScreen('screen-owner-auth')">Owner Login</button>
+    </div>
+  </nav>
+
+  <!-- Owner Hero -->
+  <div class="owner-hero">
+    <div style="max-width:1200px;width:100%;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;position:relative;z-index:1">
+      <div>
+        <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(139,92,246,.15);border:1px solid rgba(139,92,246,.25);border-radius:50px;padding:6px 14px;margin-bottom:1.5rem">
+          <span style="font-size:14px">🏪</span>
+          <span style="font-size:12px;font-weight:800;color:#a78bfa;letter-spacing:.5px">FOR SHOP OWNERS & SELLERS</span>
+        </div>
+        <h1 class="h1" style="color:#fff;margin-bottom:1rem">Grow Your Toy <em style="color:#a78bfa">Business</em> Online</h1>
+        <p style="color:rgba(255,255,255,.6);font-size:16px;line-height:1.7;margin-bottom:2rem">Join EDWANIKSTORE as a verified shop owner. Get your own dashboard, manage products, track orders — all in one place.</p>
+        <div style="display:flex;gap:1rem;flex-wrap:wrap">
+          <button class="btn btn-primary btn-lg" onclick="scrollToId('ob-request')">Request Owner Access</button>
+          <button class="btn btn-ghost btn-lg" onclick="showScreen('screen-owner-auth')">Already an Owner? Login</button>
+        </div>
+      </div>
+      <div class="g2" style="gap:1rem">
+        <div class="ob-card"><div style="font-size:28px;margin-bottom:.5rem">📊</div><div style="font-weight:700;color:#fff;margin-bottom:.25rem">Live Dashboard</div><div style="font-size:13px;color:rgba(255,255,255,.5)">Real-time sales & order tracking</div></div>
+        <div class="ob-card"><div style="font-size:28px;margin-bottom:.5rem">🧸</div><div style="font-weight:700;color:#fff;margin-bottom:.25rem">Product Management</div><div style="font-size:13px;color:rgba(255,255,255,.5)">Upload images, set prices easily</div></div>
+        <div class="ob-card"><div style="font-size:28px;margin-bottom:.5rem">💬</div><div style="font-weight:700;color:#fff;margin-bottom:.25rem">WhatsApp Orders</div><div style="font-size:13px;color:rgba(255,255,255,.5)">Orders direct to your WhatsApp</div></div>
+        <div class="ob-card"><div style="font-size:28px;margin-bottom:.5rem">👥</div><div style="font-weight:700;color:#fff;margin-bottom:.25rem">Customer Insights</div><div style="font-size:13px;color:rgba(255,255,255,.5)">Know who's buying from you</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Benefits -->
+  <div class="section" id="ob-benefits">
+    <div style="max-width:1100px;margin:0 auto">
+      <div class="section-center">
+        <div class="label" style="margin-bottom:.5rem">Why Join Us</div>
+        <h2 class="h2">Everything You Need to <em style="color:var(--p)">Succeed</em></h2>
+      </div>
+      <div class="g3">
+        <div class="feature-card"><div class="feat-icon" style="background:#ede9fe">🎯</div><h4 style="font-weight:800;margin-bottom:.5rem">Targeted Audience</h4><p style="font-size:13px;color:var(--mid);line-height:1.6">Reach thousands of parents actively looking for quality toys every day.</p></div>
+        <div class="feature-card"><div class="feat-icon" style="background:#d1fae5">💳</div><h4 style="font-weight:800;margin-bottom:.5rem">Easy Payments</h4><p style="font-size:13px;color:var(--mid);line-height:1.6">Multiple payment methods. Fast settlements directly to your bank account.</p></div>
+        <div class="feature-card"><div class="feat-icon" style="background:#dbeafe">📱</div><h4 style="font-weight:800;margin-bottom:.5rem">Mobile Friendly</h4><p style="font-size:13px;color:var(--mid);line-height:1.6">Manage your entire store from your mobile. Upload photos straight from gallery.</p></div>
+        <div class="feature-card"><div class="feat-icon" style="background:#fef3c7">🔧</div><h4 style="font-weight:800;margin-bottom:.5rem">Easy Setup</h4><p style="font-size:13px;color:var(--mid);line-height:1.6">Get your store live in minutes. No technical skills required. Full support provided.</p></div>
+        <div class="feature-card"><div class="feat-icon">📈</div><h4 style="font-weight:800;margin-bottom:.5rem">Sales Analytics</h4><p style="font-size:13px;color:var(--mid);line-height:1.6">Detailed reports on sales, products and customer behaviour. Grow smarter.</p></div>
+        <div class="feature-card"><div class="feat-icon" style="background:#fee2e2">🛡️</div><h4 style="font-weight:800;margin-bottom:.5rem">Secure Platform</h4><p style="font-size:13px;color:var(--mid);line-height:1.6">Enterprise-grade security. Your data and your customers' data, always protected.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- How it works -->
+  <div class="section" id="ob-features" style="background:var(--dk)">
+    <div style="max-width:900px;margin:0 auto">
+      <div class="section-center">
+        <h2 class="h2" style="color:#fff">How to Get <em style="color:var(--p)">Started</em></h2>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:1.5rem">
+        <div style="display:flex;align-items:flex-start;gap:1.25rem">
+          <div class="step-num">1</div>
+          <div><h4 style="font-weight:800;color:#fff;margin-bottom:.4rem">Submit Your Request</h4><p style="color:rgba(255,255,255,.5);font-size:14px;line-height:1.6">Fill in the Owner Access Request form below with your shop details. Takes 2 minutes.</p></div>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:1.25rem">
+          <div class="step-num">2</div>
+          <div><h4 style="font-weight:800;color:#fff;margin-bottom:.4rem">Admin Review & Approval</h4><p style="color:rgba(255,255,255,.5);font-size:14px;line-height:1.6">Our admin team reviews your request within 24 hours and approves your account.</p></div>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:1.25rem">
+          <div class="step-num">3</div>
+          <div><h4 style="font-weight:800;color:#fff;margin-bottom:.4rem">Receive Your Credentials</h4><p style="color:rgba(255,255,255,.5);font-size:14px;line-height:1.6">You get your login email & password directly. No public registration needed.</p></div>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:1.25rem">
+          <div class="step-num">4</div>
+          <div><h4 style="font-weight:800;color:#fff;margin-bottom:.4rem">Start Selling!</h4><p style="color:rgba(255,255,255,.5);font-size:14px;line-height:1.6">Login to your owner dashboard, upload products & start receiving orders immediately.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Request Form -->
+  <div class="section" id="ob-request">
+    <div style="max-width:600px;margin:0 auto">
+      <div class="section-center">
+        <div class="label" style="margin-bottom:.5rem">Get Started Today</div>
+        <h2 class="h2">Request Owner <em style="color:var(--p)">Access</em></h2>
+        <p style="color:var(--mid);margin-top:.75rem">Fill this form and we'll create your owner account within 24 hours.</p>
+      </div>
+      <div class="card">
+        <div class="g2" style="gap:.75rem">
+          <div class="fg"><label class="lbl">Your Name *</label><input class="inp" id="oar-name" placeholder="Full name"/></div>
+          <div class="fg"><label class="lbl">Shop Name *</label><input class="inp" id="oar-shop" placeholder="My Toy Shop"/></div>
+        </div>
+        <div class="fg"><label class="lbl">Email Address *</label><input class="inp" id="oar-email" type="email" placeholder="your@business.com"/></div>
+        <div class="fg"><label class="lbl">Phone Number *</label><input class="inp" id="oar-phone" type="tel" placeholder="+91 9876543210"/></div>
+        <div class="fg"><label class="lbl">Business Type *</label>
+          <select class="inp" id="oar-type">
+            <option value="">Select business type...</option>
+            <option>Toy Manufacturer</option><option>Toy Retailer</option><option>Online Seller</option>
+            <option>Wholesale Dealer</option><option>Home Business</option><option>Other</option>
+          </select>
+        </div>
+        <div class="fg"><label class="lbl">Message (optional)</label><textarea class="inp" rows="3" id="oar-msg" placeholder="Tell us about your business..."></textarea></div>
+        <button class="btn btn-primary" style="width:100%;justify-content:center;font-size:15px" onclick="submitOAR()">Submit Request →</button>
+        <p style="font-size:12px;color:var(--mid);text-align:center;margin-top:.75rem">We'll review and respond within 24 hours by email</p>
+      </div>
+      <div style="text-align:center;margin-top:1.5rem;font-size:14px;color:var(--mid)">
+        Already approved? <a onclick="showScreen('screen-owner-auth')" style="color:var(--p);font-weight:700;cursor:pointer">Login here →</a>
+        &nbsp;·&nbsp;
+        <a onclick="showScreen('screen-cust-landing')" style="color:var(--mid);cursor:pointer">Customer Store</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact -->
+  <div style="background:var(--dk);padding:2.5rem 2rem;text-align:center">
+    <p style="color:rgba(255,255,255,.4);font-size:13px">Need help? Email us at <span style="color:var(--p);font-weight:600" id="ol-contact-email">support@EDWANIKSTORE.com</span> · WhatsApp: <span style="color:var(--p);font-weight:600" id="ol-wa">+91 9876543210</span></p>
+    <p style="color:rgba(255,255,255,.25);font-size:12px;margin-top:.75rem">© 2026 EDWANIKSTUDIO. All Rights Reserved.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SCREEN 4: OWNER AUTH
+═══════════════════════════════════════════ -->
+<div id="screen-owner-auth" class="hide" style="min-height:100vh;background:linear-gradient(135deg,#0F2027 0%,#203A43 50%,#2C5364 100%);display:flex;align-items:center;justify-content:center;padding:2rem">
+  <div style="background:rgba(255,255,255,.05);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.1);border-radius:24px;padding:2.5rem;width:100%;max-width:400px;box-shadow:0 32px 80px rgba(0,0,0,.4)">
+    <div style="text-align:center;margin-bottom:2rem">
+      <div style="background:rgba(139,92,246,.2);border:1px solid rgba(139,92,246,.3);border-radius:50px;padding:4px 12px;display:inline-block;margin-bottom:1rem">
+        <span style="font-size:11px;font-weight:800;color:#a78bfa;letter-spacing:.5px">🔒 OWNER ACCESS</span>
+      </div>
+      <div style="font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:#fff" id="oa-brand">EDWANIKSTORE</div>
+      <div style="font-size:13px;color:rgba(255,255,255,.5);margin-top:3px">Owner credentials provided by Admin only</div>
+    </div>
+    <div class="fg"><label style="font-size:12px;font-weight:700;color:rgba(255,255,255,.5);display:block;margin-bottom:5px;letter-spacing:.3px">OWNER EMAIL</label><input class="inp" style="background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.15);color:#fff" id="ol-email" type="email" placeholder="your-owner@email.com"/></div>
+    <div class="fg"><label style="font-size:12px;font-weight:700;color:rgba(255,255,255,.5);display:block;margin-bottom:5px;letter-spacing:.3px">PASSWORD</label><input class="inp" style="background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.15);color:#fff" id="ol-pass" type="password" placeholder="Your password"/></div>
+    <button class="btn btn-primary" style="width:100%;justify-content:center;margin-top:.5rem" onclick="ownerLogin()">Login to Dashboard →</button>
+    <div style="text-align:center;margin-top:.75rem;font-size:13px;color:rgba(255,255,255,.4)">Demo: ravi@store.com / owner123</div>
+    <div style="margin-top:1.25rem;text-align:center">
+      <div style="width:100%;height:1px;background:rgba(255,255,255,.08);margin-bottom:1.25rem"></div>
+      <button class="btn btn-ghost btn-sm" style="width:100%;justify-content:center" onclick="showScreen('screen-owner-landing')">← Back to Owner Portal</button>
+      <div style="margin-top:.75rem;font-size:13px;color:rgba(255,255,255,.35)">Not an owner yet? <a onclick="showScreen('screen-owner-landing');setTimeout(()=>scrollToId('ob-request'),100)" style="color:#a78bfa;cursor:pointer;font-weight:600">Request Access</a></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SCREEN 5: ADMIN LOGIN (HIDDEN / SECURE)
+═══════════════════════════════════════════ -->
+<div id="screen-admin-auth" class="hide">
+  <div class="admin-auth-wrap">
+    <div class="admin-box">
+      <div style="text-align:center;margin-bottom:2rem">
+        <div style="width:60px;height:60px;border-radius:16px;background:linear-gradient(135deg,#4c1d95,#7c3aed);display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font-size:28px">⚙️</div>
+        <div style="font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:#fff">Admin Access</div>
+        <div style="font-size:12px;color:rgba(255,255,255,.35);margin-top:4px;letter-spacing:.5px">RESTRICTED — AUTHORIZED PERSONNEL ONLY</div>
+      </div>
+      <div class="fg"><label style="font-size:11px;font-weight:800;color:rgba(255,255,255,.4);display:block;margin-bottom:5px;letter-spacing:.8px;text-transform:uppercase">Admin Email</label><input class="inp" id="adm-email" type="email" placeholder="admin@EDWANIKSTORE.com"/></div>
+      <div class="fg"><label style="font-size:11px;font-weight:800;color:rgba(255,255,255,.4);display:block;margin-bottom:5px;letter-spacing:.8px;text-transform:uppercase">Admin Password</label><input class="inp" id="adm-pass" type="password" placeholder="Secure password"/></div>
+      <button class="btn" style="width:100%;justify-content:center;background:linear-gradient(135deg,#4c1d95,#7c3aed);color:#fff;margin-top:.5rem" onclick="adminLogin()">Access Admin Panel →</button>
+      <div style="text-align:center;margin-top:.75rem;font-size:12px;color:rgba(255,255,255,.25)">Demo: admin@EDWANIKSTORE.com / admin123</div>
+      <div style="margin-top:1.25rem;text-align:center;font-size:13px;color:rgba(255,255,255,.3)"><a onclick="showScreen('screen-cust-landing')" style="color:rgba(255,255,255,.3);cursor:pointer">← Back to Store</a></div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     SCREEN 6: MAIN APP (all roles)
+═══════════════════════════════════════════ -->
+<div id="screen-app" class="hide">
+
+  <!-- TOP NAV -->
+  <nav id="nav">
+    <div style="display:flex;align-items:center;gap:.75rem">
+      <button id="sb-toggle" onclick="togSB()" style="background:none;border:none;cursor:pointer;font-size:20px;padding:4px;border-radius:8px;transition:background .2s;color:var(--mid)" onmouseover="this.style.background='var(--lt2)'" onmouseout="this.style.background='none'">☰</button>
+      <div class="nav-logo" onclick="goDash()">
+        <div class="nav-logo-box" id="nav-logo-box"><span class="nav-logo-box-ph" id="nav-logo-ph">🧸</span></div>
+        <span class="nav-brand" id="nav-brand">EDWANIKSTORE</span>
+      </div>
+    </div>
+    <div class="nav-links" id="nav-links">
+      <button class="nav-lnk on" onclick="go('home')">Home</button>
+      <button class="nav-lnk" onclick="go('products')">Products</button>
+      <button class="nav-lnk" onclick="go('about')">About</button>
+    </div>
+    <div class="nav-right">
+      <div class="nav-search" id="nav-search">
+        <span style="font-size:16px;color:var(--bd2)">🔍</span>
+        <input type="text" placeholder="Search toys..." oninput="hSrch(this.value)" id="srch-inp"/>
+      </div>
+      <button class="btn-icon notif-bell hide" id="nav-notif-btn" onclick="go('notifications')">
+        🔔<span class="notif-ring" id="notif-count">3</span>
+      </button>
+      <button class="btn-icon hide" id="nav-wish-btn" onclick="go('wishlist')">❤️<span class="bdot" id="wc">0</span></button>
+      <button class="btn-icon hide" id="nav-cart-btn" onclick="go('cart')">🛒<span class="bdot" id="cc">0</span></button>
+      <div class="upill" onclick="togUD()">
+        <div class="uav" id="nav-av">?</div>
+        <div><div class="uav-name" id="nav-nm">User</div><div class="uav-role" id="nav-rl">—</div></div>
+        <span style="font-size:11px;color:var(--bd2);margin-left:2px">▾</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- User Dropdown -->
+  <div id="udrop" class="hide">
+    <div style="padding:.75rem 1rem;border-bottom:1px solid var(--bd);margin-bottom:.25rem">
+      <div style="font-weight:800;font-size:14px" id="ud-name">User</div>
+      <div style="font-size:12px;color:var(--mid)" id="ud-email">—</div>
+    </div>
+    <button class="udrop-item hide" id="ud-profile" onclick="go('profile');closeUD()"><span class="ico">👤</span>My Profile</button>
+    <button class="udrop-item hide" id="ud-orders" onclick="go('orders');closeUD()"><span class="ico">📦</span>My Orders</button>
+    <button class="udrop-item hide" id="ud-own" onclick="go('o-dash');closeUD()"><span class="ico">🏪</span>Owner Dashboard</button>
+    <button class="udrop-item hide" id="ud-adm" onclick="go('a-dash');closeUD()"><span class="ico">⚙️</span>Admin Panel</button>
+    <button class="udrop-item" onclick="go('notifications');closeUD()"><span class="ico">🔔</span>Notifications</button>
+    <hr style="border:none;border-top:1px solid var(--bd);margin:.25rem 0"/>
+    <button class="udrop-item" onclick="doLogout()" style="color:var(--r)"><span class="ico">🚪</span>Logout</button>
+  </div>
+
+  <!-- SIDEBAR -->
+  <div id="sidebar" class="closed">
+    <!-- Customer Sidebar -->
+    <div id="sb-cust" class="hide">
+      <div class="sb-sect"><div class="sb-sect-lbl">Shop</div>
+        <button class="sb-item on" onclick="go('home')"><span class="sico">🏠</span>Home</button>
+        <button class="sb-item" onclick="go('products')"><span class="sico">🛍️</span>Products</button>
+        <button class="sb-item" onclick="go('wishlist')"><span class="sico">❤️</span>Wishlist<span class="sb-badge" id="sb-wc">0</span></button>
+        <button class="sb-item" onclick="go('cart')"><span class="sico">🛒</span>Cart<span class="sb-badge" id="sb-cc">0</span></button>
+      </div>
+      <div class="sb-sect"><div class="sb-sect-lbl">Account</div>
+        <button class="sb-item" onclick="go('profile')"><span class="sico">👤</span>My Profile</button>
+        <button class="sb-item" onclick="go('orders')"><span class="sico">📦</span>My Orders</button>
+        <button class="sb-item" onclick="go('notifications')"><span class="sico">🔔</span>Notifications<span class="sb-badge" id="sb-notif">3</span></button>
+        <button class="sb-item" onclick="go('about')"><span class="sico">ℹ️</span>About</button>
+      </div>
+    </div>
+    <!-- Owner Sidebar -->
+    <div id="sb-own" class="hide">
+      <div class="sb-sect"><div class="sb-sect-lbl">Owner Panel</div>
+        <button class="sb-item on" onclick="go('o-dash')"><span class="sico">📊</span>Dashboard</button>
+        <button class="sb-item" onclick="go('o-prods')"><span class="sico">🧸</span>Products</button>
+        <button class="sb-item" onclick="go('o-orders')"><span class="sico">📦</span>Orders</button>
+        <button class="sb-item" onclick="go('o-custs')"><span class="sico">👥</span>Customers</button>
+        <button class="sb-item" onclick="go('o-offers')"><span class="sico">🎁</span>Offers</button>
+        <button class="sb-item" onclick="go('o-analytics')"><span class="sico">📈</span>Analytics</button>
+      </div>
+      <div class="sb-sect"><div class="sb-sect-lbl">Store</div>
+        <button class="sb-item" onclick="go('o-settings')"><span class="sico">🎨</span>Store Settings</button>
+        <button class="sb-item" onclick="go('o-branding')"><span class="sico">🖼️</span>Branding</button>
+        <button class="sb-item" onclick="go('notifications')"><span class="sico">🔔</span>Notifications</button>
+        <button class="sb-item" onclick="go('home')"><span class="sico">👁️</span>View Store</button>
+      </div>
+    </div>
+    <!-- Admin Sidebar -->
+    <div id="sb-adm" class="hide">
+      <div class="sb-sect"><div class="sb-sect-lbl">Super Admin</div>
+        <button class="sb-item on" onclick="go('a-dash')"><span class="sico">📊</span>Dashboard</button>
+        <button class="sb-item" onclick="go('a-owners')"><span class="sico">🏪</span>Shop Owners</button>
+        <button class="sb-item" onclick="go('a-requests')"><span class="sico">📋</span>Access Requests<span class="sb-badge" id="sb-req-badge">0</span></button>
+        <button class="sb-item" onclick="go('a-custs')"><span class="sico">👥</span>Customers</button>
+        <button class="sb-item" onclick="go('a-prods')"><span class="sico">🧸</span>All Products</button>
+        <button class="sb-item" onclick="go('a-orders')"><span class="sico">📦</span>All Orders</button>
+        <button class="sb-item" onclick="go('a-analytics')"><span class="sico">📈</span>Analytics</button>
+      </div>
+      <div class="sb-sect"><div class="sb-sect-lbl">Customize</div>
+        <button class="sb-item" onclick="go('a-site')"><span class="sico">🎨</span>Site Settings</button>
+        <button class="sb-item" onclick="go('a-banners')"><span class="sico">🖼️</span>Banners</button>
+        <button class="sb-item" onclick="go('a-cats')"><span class="sico">📂</span>Categories</button>
+        <button class="sb-item" onclick="go('a-landing')"><span class="sico">📄</span>Landing Pages</button>
+        <button class="sb-item" onclick="go('notifications')"><span class="sico">🔔</span>Notifications</button>
+        <button class="sb-item" onclick="go('home')"><span class="sico">👁️</span>View Store</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div id="main">
+
+    <!-- HOME / STORE FRONT -->
+    <div id="v-home">
+      <div class="hero-strip">
+        <div class="hero-inner">
+          <div class="hero-eyebrow"><span>✨</span><span id="h-eyebrow">New Arrivals 2025</span></div>
+          <h1 class="hero-h1" id="h-headline">The <em>Happiest</em> Toy Store Online</h1>
+          <p class="hero-p" id="h-subtext">Safe, fun & educational toys for every age. Quality you can trust, joy you can feel.</p>
+          <div style="display:flex;gap:.75rem;flex-wrap:wrap">
+            <button class="btn btn-primary btn-lg" onclick="go('products')">Shop Now →</button>
+            <button class="btn btn-ghost" onclick="go('about')">About Us</button>
+          </div>
+        </div>
+        <div style="position:relative;z-index:1;flex-shrink:0">
+          <div id="hero-edit-zone" class="hide" style="border:2px dashed rgba(255,255,255,.3);border-radius:var(--r14);width:200px;height:160px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.5rem;color:rgba(255,255,255,.5);font-size:13px;cursor:pointer;position:relative;overflow:hidden">
+            <span style="font-size:28px;pointer-events:none">📷</span>
+            <span style="pointer-events:none;font-weight:600">Upload Banner</span>
+            <input type="file" accept="image/*" onchange="upHeroBanner(event)" style="position:absolute;inset:0;opacity:0;cursor:pointer"/>
+          </div>
+          <img id="hero-banner-img" src="" class="hide" style="width:200px;height:160px;border-radius:var(--r14);object-fit:cover;box-shadow:var(--shl)"/>
+        </div>
+      </div>
+      <div class="cat-scroll" id="cat-chips"></div>
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem">
+        <h2 style="font-family:'Playfair Display',serif;font-size:22px;font-weight:700">🔥 Featured Products</h2>
+        <button class="btn btn-outline btn-sm" onclick="go('products')">View All →</button>
+      </div>
+      <div class="prod-grid" id="home-feat"></div>
+      <div style="display:flex;align-items:center;justify-content:space-between;margin:2rem 0 1rem">
+        <h2 style="font-family:'Playfair Display',serif;font-size:22px;font-weight:700">✨ New Arrivals</h2>
+        <button class="btn btn-outline btn-sm" onclick="go('products')">View All →</button>
+      </div>
+      <div class="prod-grid" id="home-new"></div>
+    </div>
+
+    <!-- PRODUCTS PAGE -->
+    <div id="v-products" class="hide">
+      <div style="margin-bottom:1.25rem">
+        <h2 style="font-family:'Playfair Display',serif;font-size:26px;font-weight:700">🛍️ All Products</h2>
+        <p style="font-size:14px;color:var(--mid);margin-top:3px">Browse our complete collection</p>
+      </div>
+      <div style="display:flex;gap:1rem;align-items:center;margin-bottom:1.25rem;flex-wrap:wrap">
+        <div class="nav-search" style="flex:1;max-width:280px"><span style="font-size:16px;color:var(--bd2)">🔍</span><input type="text" placeholder="Search..." oninput="hSrch(this.value)" style="border:none;background:transparent;outline:none;font-size:13px;font-family:'Plus Jakarta Sans',sans-serif"/></div>
+        <select class="inp" style="width:auto" onchange="sortProd(this.value)">
+          <option value="">Sort: Default</option><option value="pa">Price ↑</option>
+          <option value="pd">Price ↓</option><option value="rt">Top Rated</option><option value="nw">Newest</option>
+        </select>
+        <select class="inp" style="width:auto" id="cat-filter" onchange="fltCat(this.value)">
+          <option value="">All Categories</option>
+        </select>
+      </div>
+      <div class="prod-grid" id="all-prods"></div>
+    </div>
+
+    <!-- PRODUCT DETAIL -->
+    <div id="v-detail" class="hide">
+      <button class="btn btn-outline btn-sm" onclick="goBack()" style="margin-bottom:1.25rem">← Back</button>
+      <div class="detail-layout" id="detail-inner"></div>
+      <div style="margin-top:2rem">
+        <h3 style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;margin-bottom:1rem">You May Also Like</h3>
+        <div class="prod-grid" id="related"></div>
+      </div>
+    </div>
+
+    <!-- CART -->
+    <div id="v-cart" class="hide">
+      <h2 style="font-family:'Playfair Display',serif;font-size:26px;font-weight:700;margin-bottom:4px">🛒 Shopping Cart</h2>
+      <p style="font-size:14px;color:var(--mid);margin-bottom:1.25rem" id="cart-info">0 items</p>
+      <div class="cart-layout">
+        <div id="cart-items-wrap"></div>
+        <div class="order-sum" id="order-sum-box">
+          <h3 style="font-size:17px;font-weight:800;margin-bottom:1.25rem">Order Summary</h3>
+          <div class="sum-row"><span>Subtotal</span><span id="sum-sub">₹0</span></div>
+          <div class="sum-row"><span>Shipping</span><span style="color:var(--g);font-weight:700">FREE 🎉</span></div>
+          <div class="sum-row total"><span>Total</span><span id="sum-tot">₹0</span></div>
+          <button class="btn btn-primary" style="width:100%;justify-content:center;background:var(--g);margin-top:1rem;font-size:15px" onclick="chkWA()">💬 Order via WhatsApp</button>
+          <p style="font-size:12px;color:var(--mid);text-align:center;margin-top:.75rem;line-height:1.5">You'll be redirected to WhatsApp to confirm your order with full details</p>
+        </div>
+      </div>
+      <div id="cart-empty-state" class="hide" style="text-align:center;padding:4rem">
+        <div style="font-size:56px;margin-bottom:1rem">🛒</div>
+        <h3 style="font-size:18px;font-weight:700;margin-bottom:.5rem">Your cart is empty</h3>
+        <p style="color:var(--mid);margin-bottom:1.5rem">Add some amazing toys!</p>
+        <button class="btn btn-primary" onclick="go('products')">Browse Products</button>
+      </div>
+    </div>
+
+    <!-- WISHLIST -->
+    <div id="v-wishlist" class="hide">
+      <h2 style="font-family:'Playfair Display',serif;font-size:26px;font-weight:700;margin-bottom:4px">❤️ My Wishlist</h2>
+      <p style="font-size:14px;color:var(--mid);margin-bottom:1.25rem">Products you love</p>
+      <div class="prod-grid" id="wish-grid"></div>
+      <div id="wish-empty" class="hide" style="text-align:center;padding:4rem">
+        <div style="font-size:56px;margin-bottom:1rem">💔</div>
+        <h3 style="font-size:18px;font-weight:700;margin-bottom:.5rem">Wishlist is empty</h3>
+        <p style="color:var(--mid);margin-bottom:1.5rem">Click ❤️ on any product to save it here</p>
+        <button class="btn btn-primary" onclick="go('products')">Browse Products</button>
+      </div>
+    </div>
+
+    <!-- CUSTOMER PROFILE -->
+    <div id="v-profile" class="hide">
+      <h2 style="font-family:'Playfair Display',serif;font-size:26px;font-weight:700;margin-bottom:1.25rem">👤 My Account</h2>
+      <div class="profile-grid">
+        <div class="profile-sb">
+          <div class="pav-wrap">
+            <div class="pav-big" onclick="document.getElementById('pav-file').click()">
+              <span id="pav-ph">👤</span>
+              <img id="pav-img" src="" class="hide"/>
+              <input type="file" accept="image/*" id="pav-file" class="hide" onchange="upAvatar(event)"/>
+            </div>
+            <div style="font-weight:800;font-size:16px" id="pav-name">My Account</div>
+            <div style="font-size:12px;color:var(--p);font-weight:700;margin-top:2px">Customer</div>
+            <div style="font-size:11px;color:var(--mid);margin-top:4px">Tap photo to update</div>
+          </div>
+          <hr style="border:none;border-top:1px solid var(--bd);margin:.75rem 0"/>
+          <button class="pnav-item on" onclick="swPT('info',this)"><span>👤</span> Personal Info</button>
+          <button class="pnav-item" onclick="swPT('addr',this)"><span>📍</span> Addresses</button>
+          <button class="pnav-item" onclick="swPT('ords',this)"><span>📦</span> My Orders</button>
+          <button class="pnav-item" onclick="swPT('wl',this)"><span>❤️</span> Wishlist</button>
+        </div>
+        <div>
+          <div class="card" id="pt-info">
+            <h3 style="font-size:17px;font-weight:800;margin-bottom:1.25rem">Personal Information</h3>
+            <div class="g2"><div class="fg"><label class="lbl">First Name</label><input class="inp" id="p-fn" placeholder="John"/></div><div class="fg"><label class="lbl">Last Name</label><input class="inp" id="p-ln" placeholder="Doe"/></div></div>
+            <div class="fg"><label class="lbl">Email</label><input class="inp" id="p-em" type="email" placeholder="john@example.com"/></div>
+            <div class="fg"><label class="lbl">Mobile / WhatsApp</label><input class="inp" id="p-mob" type="tel" placeholder="+91 9876543210"/></div>
+            <button class="btn btn-primary" onclick="savePrf()">Save Changes</button>
+          </div>
+          <div class="card hide" id="pt-addr">
+            <h3 style="font-size:17px;font-weight:800;margin-bottom:1.25rem">Delivery Address</h3>
+            <div class="fg"><label class="lbl">Full Address</label><textarea class="inp" rows="3" id="p-addr" placeholder="House no, Street, Area..."></textarea></div>
+            <div class="g2"><div class="fg"><label class="lbl">City</label><input class="inp" id="p-city" placeholder="Chennai"/></div><div class="fg"><label class="lbl">Pincode</label><input class="inp" id="p-pin" placeholder="600001"/></div></div>
+            <div class="fg"><label class="lbl">State</label><input class="inp" id="p-state" placeholder="Tamil Nadu"/></div>
+            <button class="btn btn-primary" onclick="toast('Address saved! 📍','success')">Save Address</button>
+          </div>
+          <div class="card hide" id="pt-ords"><h3 style="font-size:17px;font-weight:800;margin-bottom:1.25rem">My Orders</h3><div id="p-ords-list"></div></div>
+          <div class="card hide" id="pt-wl"><h3 style="font-size:17px;font-weight:800;margin-bottom:1rem">My Wishlist</h3><div id="p-wl-list"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ORDERS PAGE -->
+    <div id="v-orders" class="hide">
+      <h2 style="font-family:'Playfair Display',serif;font-size:26px;font-weight:700;margin-bottom:4px">📦 My Orders</h2>
+      <p style="font-size:14px;color:var(--mid);margin-bottom:1.25rem">Your complete order history</p>
+      <div id="orders-list"></div>
+    </div>
+
+    <!-- ABOUT -->
+    <div id="v-about" class="hide">
+      <div style="background:linear-gradient(135deg,var(--dk),var(--dk2));padding:3rem;border-radius:var(--r20);color:#fff;margin-bottom:2rem;text-align:center">
+        <h1 style="font-family:'Playfair Display',serif;font-size:42px;font-weight:700;margin-bottom:1rem">About EDWANIKSTORE 🧸</h1>
+        <p style="color:rgba(255,255,255,.6);font-size:16px;max-width:560px;margin:0 auto;line-height:1.7" id="about-txt">We believe every child deserves the joy of play. Quality toys, safe materials, endless smiles since 2020.</p>
+      </div>
+      <div class="g3" style="margin-bottom:2rem">
+        <div class="stat"><div class="stat-val">10K+</div><div class="stat-lbl">Happy Customers</div></div>
+        <div class="stat green"><div class="stat-val" style="color:var(--g)">500+</div><div class="stat-lbl">Products</div></div>
+        <div class="stat blue"><div class="stat-val" style="color:var(--b)">4.9★</div><div class="stat-lbl">Avg Rating</div></div>
+      </div>
+      <div class="g4">
+        <div class="feature-card"><div class="feat-icon">🛡️</div><h4 style="font-weight:800;margin-bottom:.5rem">Safety First</h4><p style="font-size:13px;color:var(--mid)">All toys meet strict safety standards</p></div>
+        <div class="feature-card"><div class="feat-icon">💰</div><h4 style="font-weight:800;margin-bottom:.5rem">Best Prices</h4><p style="font-size:13px;color:var(--mid)">Direct from manufacturers</p></div>
+        <div class="feature-card"><div class="feat-icon">🚀</div><h4 style="font-weight:800;margin-bottom:.5rem">Fast Delivery</h4><p style="font-size:13px;color:var(--mid)">Quick dispatch nationwide</p></div>
+        <div class="feature-card"><div class="feat-icon">💬</div><h4 style="font-weight:800;margin-bottom:.5rem">WA Support</h4><p style="font-size:13px;color:var(--mid)">Personal order assistance</p></div>
+      </div>
+    </div>
+
+    <!-- NOTIFICATIONS -->
+    <div id="v-notifications" class="hide">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem">
+        <div><h2 style="font-family:'Playfair Display',serif;font-size:26px;font-weight:700">🔔 Notifications</h2><p style="font-size:14px;color:var(--mid)">Stay updated on orders and activity</p></div>
+        <button class="btn btn-outline btn-sm" onclick="markAllRead()">Mark All Read</button>
+      </div>
+      <div class="card" style="padding:0;overflow:hidden"><div id="notif-list"></div></div>
+    </div>
+
+    <!-- OWNER DASHBOARD -->
+    <div id="v-o-dash" class="hide">
+      <div style="background:linear-gradient(135deg,var(--dk),var(--dk2));padding:1.75rem;border-radius:var(--r14);margin-bottom:1.5rem;color:#fff;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem">
+        <div><h1 style="font-family:'Playfair Display',serif;font-size:24px;font-weight:700">🏪 Owner Dashboard</h1><p style="color:rgba(255,255,255,.6);font-size:14px;margin-top:3px" id="o-dash-sub">Welcome back!</p></div>
+        <span class="tag tag-g">Active</span>
+      </div>
+      <div class="g4" style="margin-bottom:1.5rem">
+        <div class="stat"><div class="stat-val" id="os-p">0</div><div class="stat-lbl">My Products</div><span class="stat-delta up">↑ +2 this week</span></div>
+        <div class="stat green"><div class="stat-val" style="color:var(--g)" id="os-o">0</div><div class="stat-lbl">Total Orders</div><span class="stat-delta up">↑ +5 today</span></div>
+        <div class="stat blue"><div class="stat-val" style="color:var(--b)" id="os-c">0</div><div class="stat-lbl">Customers</div></div>
+        <div class="stat yellow"><div class="stat-val" style="color:var(--y)" id="os-r">₹0</div><div class="stat-lbl">Revenue</div><span class="stat-delta up">↑ +12%</span></div>
+      </div>
+      <div class="g2">
+        <div class="card"><h3 style="font-weight:800;margin-bottom:1rem">Quick Actions</h3>
+          <div style="display:flex;flex-direction:column;gap:.5rem">
+            <button class="btn btn-primary" style="justify-content:flex-start" onclick="go('o-prods')">🧸 Manage Products</button>
+            <button class="btn btn-outline" style="justify-content:flex-start" onclick="go('o-orders')">📦 View Orders</button>
+            <button class="btn btn-outline" style="justify-content:flex-start" onclick="go('o-analytics')">📈 View Analytics</button>
+            <button class="btn btn-outline" style="justify-content:flex-start" onclick="go('o-branding')">🖼️ Update Branding</button>
+          </div>
+        </div>
+        <div class="card"><h3 style="font-weight:800;margin-bottom:1rem">💬 WhatsApp Settings</h3>
+          <div class="fg"><label class="lbl">WhatsApp Number</label><input class="inp" id="wa-num" value="+91 9876543210"/></div>
+          <div class="fg"><label class="lbl">Order Message Template</label><textarea class="inp" rows="3" id="wa-tpl">Hi EDWANIKSTORE! I'd like to order:
+{product} x{qty} = {price}
+Please confirm availability.</textarea></div>
+          <button class="btn btn-primary" style="background:var(--g)" onclick="saveWA()">Save WhatsApp Settings</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- OWNER PRODUCTS -->
+    <div id="v-o-prods" class="hide">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem">
+        <div><h2 style="font-family:'Playfair Display',serif;font-size:24px;font-weight:700">🧸 My Products</h2><p style="font-size:14px;color:var(--mid)">Manage your product listings</p></div>
+        <button class="btn btn-primary" onclick="openAddProd()">+ Add Product</button>
+      </div>
+      <div class="tbl-wrap"><div class="tbl-head"><h3>Product List</h3><span style="font-size:13px;color:var(--mid)" id="op-cnt">0 products</span></div>
+        <div style="overflow-x:auto"><table><thead><tr><th>Product</th><th>Category</th><th>Price</th><th>Stock</th><th>Status</th><th>Actions</th></tr></thead><tbody id="op-tb"></tbody></table></div>
+      </div>
+    </div>
+
+    <!-- OWNER ORDERS -->
+    <div id="v-o-orders" class="hide">
+      <h2 style="font-family:'Playfair Display',serif;font-size:24px;font-weight:700;margin-bottom:4px">📦 Orders</h2>
+      <p style="font-size:14px;color:var(--mid);margin-bottom:1.25rem">Track and manage customer orders</p>
+      <div class="tbl-wrap"><div class="tbl-head"><h3>All Orders</h3></div>
+        <div style="overflow-x:auto"><table><thead><tr><th>Order ID</th><th>Customer</th><th>Items</th><th>Total</th><th>Status</th><th>Date</th><th>Action</th></tr></thead><tbody id="oo-tb"></tbody></table></div>
+      </div>
+    </div>
+
+    <!-- OWNER CUSTOMERS -->
+    <div id="v-o-custs" class="hide">
+      <h2 style="font-family:'Playfair Display',serif;font-size:24px;font-weight:700;margin-bottom:4px">👥 My Customers</h2>
+      <p style="font-size:14px;color:var(--mid);margin-bottom:1.25rem">Customers who ordered from your store</p>
+      <div class="tbl-wrap"><div class="tbl-head"><h3>Customer List</h3></div>
+        <div style="overflow-x:auto"><table><thead><tr><th>Name</th><th>Email</th><th>Mobile</th><th>Orders</th><th>Joined</th></tr></thead><tbody id="oc-tb"></tbody></table></div>
+      </div>
+    </div>
+
+    <!-- OWNER OFFERS -->
+    <div id="v-o-offers" class="hide">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem">
+        <div><h2 style="font-family:'Playfair Display',serif;font-size:24px;font-weight:700">🎁 Offers & Promotions</h2><p style="font-size:14px;color:var(--mid)">Create discount offers</p></div>
+        <button class="btn btn-primary" onclick="openAddOffer()">+ New Offer</button>
+      </div>
+      <div class="g2" id="offers-grid"></div>
+    </div>
+
+    <!-- OWNER ANALYTICS -->
+    <div id="v-o-analytics" class="hide">
+      <h2 style="font-family:'Playfair Display',serif;font-size:24px;font-weight:700;margin-bottom:4px">📈 Analytics</h2>
+      <p style="font-size:14px;color:var(--mid);margin-bottom:1.5rem">Sales performance & customer insights</p>
+      <div class="g4" style="margin-bottom:1.5rem">
+        <div class="stat"><div class="stat-val" id="an-rev">₹0</div><div class="stat-lbl">Total Revenue</div><span class="stat-delta up">↑ 18% vs last month</span></div>
+        <div class="stat green"><div class="stat-val" style="color:var(--g)" id="an-ords">0</div><div class="stat-lbl">Total Orders</div></div>
+        <div class="stat blue"><div class="stat-val" style="color:var(--b)" id="an-aov">₹0</div><div class="stat-lbl">Avg Order Value</div></div>
+        <div class="stat yellow"><div class="stat-val" style="color:var(--y)" id="an-conv">0%</div><div class="stat-lbl">Conversion Rate</div></div>
+      </div>
+      <div class="g2">
+        <div class="card"><h3 style="font-weight:800;margin-bottom:1rem">Monthly Sales</h3>
+          <div id="sales-chart" style="display:flex;align-items:flex-end;gap:4px;height:120px;padding:20px 0 0"></div>
+          <div id="sales-chart-labels" style="display:flex;gap:4px;margin-top:4px;font-size:10px;color:var(--mid)"></div>
+        </div>
+        <div class="card"><h3 style="font-weight:800;margin-bottom:1rem">Top Products</h3><div id="top-prods-list"></div></div>
+      </div>
+      <div class="g2" style="margin-top:1rem">
+        <div class="card"><h3 style="font-weight:800;margin-bottom:1rem">Customer Insights</h3>
+          <div style="display:flex;flex-direction:column;gap:.75rem">
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:14px"><span>New Customers</span><strong style="color:var(--g)">+12 this week</strong></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:14px"><span>Returning Customers</span><strong style="color:var(--b)">68%</strong></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:14px"><span>Wishlist Saves</span><strong style="color:var(--pu)" id="an-wish">0</strong></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:14px"><span>Cart Abandonment</span><strong style="color:var(--r)">23%</strong></div>
+          </div>
+        </div>
+        <div class="card"><h3 style="font-weight:800;margin-bottom:1rem">Order Status Breakdown</h3>
+          <div style="display:flex;flex-direction:column;gap:.75rem">
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:14px"><span>Delivered</span><span class="tag tag-g" id="an-del">0</span></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:14px"><span>Shipped</span><span class="tag tag-b" id="an-ship">0</span></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:14px"><span>Processing</span><span class="tag tag-y" id="an-proc">0</span></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:14px"><span>Cancelled</span><span class="tag tag-r">0</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- OWNER SETTINGS -->
+    <div id="v-o-settings" class="hide">
+      <h2 style="font-family:'Playfair Display',serif;font-size:24px;font-weight:700;margin-bottom:4px">🎨 Store Settings</h2>
+      <p style="font-size:14px;color:var(--mid);margin-bottom:1.25rem">Customize your store</p>
+      <div class="g2">
+        <div class="card"><h3 style="font-weight:800;margin-bottom:1rem">Store Information</h3>
+          <div class="fg"><label class="lbl">Store Name</label><input class="inp" id="os-name" value="EDWANIKSTORE" oninput="pvBrand(this.value)"/></div>
+          <div class="fg"><label class="lbl">Tagline</label><input class="inp" id="os-tag" value="Fun For Everyone!"/></div>
+          <div class="fg"><label class="lbl">About Us Text</label><textarea class="inp" rows="3" id="os-about">Quality toys for every child.</textarea></div>
+          <button class="btn btn-primary" onclick="saveOwnerSettings()">Save Settings</button>
+        </div>
+        <div class="card"><h3 style="font-weight:800;margin-bottom:1rem">Theme Color</h3>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:1rem">
+            <div style="width:34px;height:34px;border-radius:50%;background:#FF6B35;cursor:pointer;border:3px solid white;box-shadow:0 0 0 2px #FF6B35" onclick="applyClr('#FF6B35',this)"></div>
+            <div style="width:34px;height:34px;border-radius:50%;background:#E91E63;cursor:pointer;border:3px solid white;box-shadow:0 0 0 2px var(--bd)" onclick="applyClr('#E91E63',this)"></div>
+            <div style="width:34px;height:34px;border-radius:50%;background:#3B82F6;cursor:pointer;border:3px solid white;box-shadow:0 0 0 2px var(--bd)" onclick="applyClr('#3B82F6',this)"></div>
+            <div style="width:34px;height:34px;border-radius:50%;background:#8B5CF6;cursor:pointer;border:3px solid white;box-shadow:0 0 0 2px var(--bd)" onclick="applyClr('#8B5CF6',this)"></div>
+            <div style="width:34px;height:34px;border-radius:50%;background:#10B981;cursor:pointer;border:3px solid white;box-shadow:0 0 0 2px var(--bd)" onclick="applyClr('#10B981',this)"></div>
+            <div style="width:34px;height:34px;border-radius:50%;background:#F59E0B;cursor:pointer;border:3px solid white;box-shadow:0 0 0 2px var(--bd)" onclick="applyClr('#F59E0B',this)"></div>
+            <input type="color" value="#FF6B35" onchange="applyClr(this.value,null)" style="width:34px;height:34px;border:none;border-radius:50%;cursor:pointer;padding:0"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- OWNER BRANDING -->
+    <div id="v-o-branding" class="hide">
+      <h2 style="font-family:'Playfair Display',serif;font-size:24px;font-weight:700;margin-bottom:4px">🖼️ Branding</h2>
+      <p style="font-size:14px;color:var(--mid);margin-bottom:1.25rem">Upload logo and banner images from your gallery</p>
+      <div class="g2">
+        <div class="card"><h3 style="font-weight:800;margin-bottom:1rem">Brand Logo</h3>
+          <p style="font-size:13px;color:var(--mid);margin-bottom:1rem">Upload PNG/JPG (square format recommended)</p>
+          <div class="upzone"><div style="pointer-events:none"><div class="upzone-icon">🖼️</div><p>Tap to upload from gallery</p><em>PNG, JPG up to 5MB</em></div><input type="file" accept="image/*" onchange="upLogo(event)"/></div>
+          <div id="logo-prev" class="hide" style="margin-top:1rem;text-align:center">
+            <img id="logo-img" src="" style="max-width:120px;max-height:120px;border-radius:var(--r10);border:2px solid var(--bd)"/>
+            <button onclick="clrLogo()" style="display:block;margin:.5rem auto 0;background:var(--r);color:#fff;border:none;border-radius:var(--r6);padding:5px 12px;cursor:pointer;font-size:12px;font-family:'Plus Jakarta Sans',sans-serif">Remove</button>
+          </div>
+        </div>
+        <div class="card"><h3 style="font-weight:800;margin-bottom:1rem">Hero Banner</h3>
+          <p style="font-size:13px;color:var(--mid);margin-bottom:1rem">Recommended: 800×400px landscape</p>
+          <div class="upzone"><div style="pointer-events:none"><div class="upzone-icon">🏞️</div><p>Tap to upload banner</p><em>Recommended: 800×400px</em></div><input type="file" accept="image/*" onchange="upHeroBanner(event)"/></div>
+          <div id="banner-prev" class="hide" style="margin-top:1rem"><img id="banner-img" src="" style="width:100%;border-radius:var(--r10);border:2px solid var(--bd)"/></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ADMIN DASHBOARD -->
+    <div id="v-a-dash" class="hide">
+      <div style="background:linear-gradient(135deg,#1a0533,#2d1460,#1a2a6c);padding:2rem;border-radius:var(--r20);margin-bottom:1.5rem;color:#fff;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem">
+        <div><h1 style="font-family:'Playfair Display',serif;font-size:26px;font-weight:700">⚙️ Super Admin Dashboard</h1><p style="color:rgba(255,255,255,.55);font-size:14px;margin-top:3px">Full platform control & analytics</p></div>
+        <div style="display:flex;gap:.75rem;flex-wrap:wrap">
+          <span class="tag" style="background:rgba(139,92,246,.25);color:#a78bfa">Super Admin</span>
+          <span class="tag tag-g">System Online</span>
+        </div>
+      </div>
+      <div class="g5" style="margin-bottom:1.5rem">
+        <div class="stat purple"><div class="stat-val" style="color:var(--pu)" id="as-own">2</div><div class="stat-lbl">Shop Owners</div></div>
+        <div class="stat blue"><div class="stat-val" style="color:var(--b)" id="as-custs">3</div><div class="stat-lbl">Customers</div></div>
+        <div class="stat"><div class="stat-val" id="as-prods">0</div><div class="stat-lbl">Products</div></div>
+        <div class="stat green"><div class="stat-val" style="color:var(--g)" id="as-ords">5</div><div class="stat-lbl">Total Orders</div></div>
+        <div class="stat yellow"><div class="stat-val" style="color:var(--y)" id="as-req">0</div><div class="stat-lbl">Pending Requests</div></div>
+      </div>
+      <div class="g2">
+        <div class="card"><h3 style="font-weight:800;margin-bottom:1rem">Quick Navigation</h3>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem">
+            <button class="btn btn-primary btn-sm" onclick="go('a-owners')">🏪 Manage Owners</button>
+            <button class="btn btn-outline btn-sm" onclick="go('a-requests')">📋 Access Requests</button>
+            <button class="btn btn-outline btn-sm" onclick="go('a-custs')">👥 Customers</button>
+            <button class="btn btn-outline btn-sm" onclick="go('a-analytics')">📈 Analytics</button>
+            <button class="btn btn-outline btn-sm" onclick="go('a-site')">🎨 Site Settings</button>
+            <button class="btn btn-outline btn-sm" onclick="go('a-landing')">📄 Landing Pages</button>
+          </div>
+        </div>
+        <div class="card"><h3 style="font-weight:800;margin-bottom:1rem">Platform Info</h3>
+          <div style="display:flex;flex-direction:column;gap:.6rem">
+            <div style="display:flex;justify-content:space-between;font-size:14px"><span style="color:var(--mid)">Platform</span><span class="tag tag-p">EDWANIKSTORE</span></div>
+            <div style="display:flex;justify-content:space-between;font-size:14px"><span style="color:var(--mid)">Version</span><span class="tag tag-g">v3.0</span></div>
+            <div style="display:flex;justify-content:space-between;font-size:14px"><span style="color:var(--mid)">Built by</span><span class="tag tag-b">EDWANIKSTUDIO</span></div>
+            <div style="display:flex;justify-content:space-between;font-size:14px"><span style="color:var(--mid)">Your Role</span><span class="tag tag-pu">Super Admin</span></div>
+            <div style="display:flex;justify-content:space-between;font-size:14px"><span style="color:var(--mid)">Security</span><span class="tag tag-g">✅ Secured</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ADMIN: OWNERS -->
+    <div id="v-a-owners" class="hide">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem">
+        <div><h2 style="font-family:'Playfair Display',serif;font-size:24px;font-weight:700">🏪 Shop Owners</h2><p style="font-size:14px;color:var(--mid)">Create & manage owner accounts</p></div>
+        <button class="btn btn-primary" onclick="openCrtOwn()">+ Create Owner</button>
+      </div>
+      <div class="tbl-wrap"><div class="tbl-head"><h3>Owner Accounts</h3><span style="font-size:13px;color:var(--mid)">Only Admin can create owner accounts</span></div>
+        <div style="overflow-x:auto"><table><thead><tr><th>Owner</th><th>Email</th><th>Store</th><th>Products</th><th>Status</th><th>Permissions</th><th>Actions</th></tr></thead><tbody id="ao-tb"></tbody></table></div>
+      </div>
+    </div>
+
+    <!-- ADMIN: ACCESS REQUESTS -->
+    <div id="v-a-requests" class="hide">
+      <h2 style="font-family:'Playfair Display',serif;font-size:24px;font-weight:700;margin-bottom:4px">📋 Owner Access Requests</h2>
+      <p style="font-size:14px;color:var(--mid);margin-bottom:1.25rem">Review and approve/reject owner applications</p>
+      <div class="tbl-wrap"><div class="tbl-head"><h3>Pending Requests</h3><span id="req-count-lbl" style="font-size:13px;color:var(--mid)">0 pending</span></div>
+        <div style="overflow-x:auto"><table><thead><tr><th>Name</th><th>Shop</th><th>Email</th><th>Phone</th><th>Business Type</th><th>Date</th><th>Actions</th></tr></thead><tbody id="req-tb"></tbody></table></div>
+      </div>
+    </div>
+
+    <!-- ADMIN: CUSTOMERS -->
+    <div id="v-a-custs" class="hide">
+      <h2 style="font-family:'Playfair Display',serif;font-size:24px;font-weight:700;margin-bottom:4px">👥 All Customers</h2>
+      <p style="font-size:14px;color:var(--mid);margin-bottom:1.25rem">Platform-wide customer list</p>
+      <div class="tbl-wrap"><div class="tbl-head"><h3>All Customers</h3></div>
+        <div style="overflow-x:auto"><table><thead><tr><th>Name</th><th>Email</th><th>Mobile</th><th>Orders</th><th>Joined</th><th>Status</th></tr></thead><tbody id="ac-tb"></tbody></table></div>
+      </div>
+    </div>
+
+    <!-- ADMIN: ALL PRODUCTS -->
+    <div id="v-a-prods" class="hide">
+      <h2 style="font-family:'Playfair Display',serif;font-size:24px;font-weight:700;margin-bottom:4px">🧸 All Products</h2>
+      <p style="font-size:14px;color:var(--mid);margin-bottom:1.25rem">Platform-wide product management</p>
+      <div class="tbl-wrap"><div class="tbl-head"><h3>All Products</h3></div>
+        <div style="overflow-x:auto"><table><thead><tr><th>Product</th><th>Owner</th><th>Category</th><th>Price</th><th>Stock</th><th>Actions</th></tr></thead><tbody id="ap-tb"></tbody></table></div>
+      </div>
+    </div>
+
+    <!-- ADMIN: ALL ORDERS -->
+    <div id="v-a-orders" class="hide">
+      <h2 style="font-family:'Playfair Display',serif;font-size:24px;font-weight:700;margin-bottom:4px">📦 All Orders</h2>
+      <p style="font-size:14px;color:var(--mid);margin-bottom:1.25rem">Platform-wide order tracking</p>
+      <div class="tbl-wrap"><div class="tbl-head"><h3>All Orders</h3></div>
+        <div style="overflow-x:auto"><table><thead><tr><th>Order ID</th><th>Customer</th><th>Owner</th><th>Items</th><th>Total</th><th>Status</th><th>Date</th></tr></thead><tbody id="aord-tb"></tbody></table></div>
+      </div>
+    </div>
+
+    <!-- ADMIN: ANALYTICS -->
+    <div id="v-a-analytics" class="hide">
+      <h2 style="font-family:'Playfair Display',serif;font-size:24px;font-weight:700;margin-bottom:4px">📈 Platform Analytics</h2>
+      <p style="font-size:14px;color:var(--mid);margin-bottom:1.5rem">Full platform performance overview</p>
+      <div class="g4" style="margin-bottom:1.5rem">
+        <div class="stat"><div class="stat-val" id="aa-rev">₹0</div><div class="stat-lbl">Platform Revenue</div></div>
+        <div class="stat green"><div class="stat-val" style="color:var(--g)" id="aa-ords">0</div><div class="stat-lbl">Total Orders</div></div>
+        <div class="stat blue"><div class="stat-val" style="color:var(--b)" id="aa-custs">3</div><div class="stat-lbl">Customers</div></div>
+        <div class="stat purple"><div class="stat-val" style="color:var(--pu)" id="aa-owns">2</div><div class="stat-lbl">Active Owners</div></div>
+      </div>
+      <div class="g2">
+        <div class="card"><h3 style="font-weight:800;margin-bottom:1rem">Platform Sales Chart</h3>
+          <div id="admin-chart" style="display:flex;align-items:flex-end;gap:4px;height:120px;padding:20px 0 0"></div>
+          <div id="admin-chart-labels" style="display:flex;gap:4px;margin-top:4px;font-size:10px;color:var(--mid)"></div>
+        </div>
+        <div class="card"><h3 style="font-weight:800;margin-bottom:1rem">Top Performing Owners</h3><div id="top-owners-list"></div></div>
+      </div>
+    </div>
+
+    <!-- ADMIN: SITE SETTINGS -->
+    <div id="v-a-site" class="hide">
+      <h2 style="font-family:'Playfair Display',serif;font-size:24px;font-weight:700;margin-bottom:4px">🎨 Site Settings</h2>
+      <p style="font-size:14px;color:var(--mid);margin-bottom:1.25rem">Full website customization</p>
+      <div class="g2">
+        <div class="card"><h3 style="font-weight:800;margin-bottom:1rem">Branding & Identity</h3>
+          <div class="fg"><label class="lbl">Site Name</label><input class="inp" id="as-name" value="EDWANIKSTORE" oninput="pvBrand(this.value)"/></div>
+          <div class="fg"><label class="lbl">Tagline</label><input class="inp" id="as-tag" value="Fun For Everyone!"/></div>
+          <div class="fg"><label class="lbl">WhatsApp Number</label><input class="inp" id="as-wa" value="+91 9876543210"/></div>
+          <div class="fg"><label class="lbl">Support Email</label><input class="inp" id="as-email" value="hello@EDWANIKSTORE.com"/></div>
+          <div class="fg"><label class="lbl">About Text</label><textarea class="inp" rows="3" id="as-about">We believe every child deserves the joy of play.</textarea></div>
+          <button class="btn btn-primary" onclick="saveAdminSite()">Save All Settings</button>
+        </div>
+        <div class="card"><h3 style="font-weight:800;margin-bottom:1rem">Brand Logo</h3>
+          <div class="upzone"><div style="pointer-events:none"><div class="upzone-icon">🖼️</div><p>Upload brand logo</p><em>PNG/JPG · Square format</em></div><input type="file" accept="image/*" onchange="upLogo(event)"/></div>
+          <div id="alogo-prev" class="hide" style="margin-top:1rem"><img id="alogo-img" src="" style="max-width:100px;border-radius:var(--r10)"/></div>
+          <hr style="border:none;border-top:1px solid var(--bd);margin:1rem 0"/>
+          <h3 style="font-weight:800;margin-bottom:1rem">Theme Color</h3>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+            <div style="width:34px;height:34px;border-radius:50%;background:#FF6B35;cursor:pointer;border:3px solid white;box-shadow:0 0 0 2px #FF6B35" onclick="applyClr('#FF6B35',this)"></div>
+            <div style="width:34px;height:34px;border-radius:50%;background:#E91E63;cursor:pointer;border:3px solid white;box-shadow:0 0 0 2px var(--bd)" onclick="applyClr('#E91E63',this)"></div>
+            <div style="width:34px;height:34px;border-radius:50%;background:#3B82F6;cursor:pointer;border:3px solid white;box-shadow:0 0 0 2px var(--bd)" onclick="applyClr('#3B82F6',this)"></div>
+            <div style="width:34px;height:34px;border-radius:50%;background:#8B5CF6;cursor:pointer;border:3px solid white;box-shadow:0 0 0 2px var(--bd)" onclick="applyClr('#8B5CF6',this)"></div>
+            <div style="width:34px;height:34px;border-radius:50%;background:#10B981;cursor:pointer;border:3px solid white;box-shadow:0 0 0 2px var(--bd)" onclick="applyClr('#10B981',this)"></div>
+            <input type="color" value="#FF6B35" onchange="applyClr(this.value,null)" style="width:34px;height:34px;border:none;border-radius:50%;cursor:pointer;padding:0"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ADMIN: BANNERS -->
+    <div id="v-a-banners" class="hide">
+      <h2 style="font-family:'Playfair Display',serif;font-size:24px;font-weight:700;margin-bottom:4px">🖼️ Banner Management</h2>
+      <p style="font-size:14px;color:var(--mid);margin-bottom:1.25rem">Upload and manage homepage banners</p>
+      <div class="g2">
+        <div class="card"><h3 style="font-weight:800;margin-bottom:1rem">Hero Banner</h3>
+          <div class="fg"><label class="lbl">Headline Text</label><input class="inp" id="bh-hl" value="The Happiest Toy Store Online" oninput="document.getElementById('h-headline').textContent=this.value"/></div>
+          <div class="fg"><label class="lbl">Sub Text</label><input class="inp" id="bh-st" value="Safe, fun & educational toys for every age"/></div>
+          <div class="fg"><label class="lbl">Eyebrow</label><input class="inp" id="bh-ey" value="New Arrivals 2025" oninput="document.getElementById('h-eyebrow').textContent=this.value"/></div>
+          <div class="upzone" style="margin-bottom:1rem"><div style="pointer-events:none"><div class="upzone-icon" style="font-size:24px">📷</div><p style="font-size:13px">Upload Hero Image</p></div><input type="file" accept="image/*" onchange="upHeroBanner(event)"/></div>
+          <button class="btn btn-primary" style="width:100%;justify-content:center" onclick="saveBannerSettings()">Save Banner</button>
+        </div>
+        <div class="card"><h3 style="font-weight:800;margin-bottom:1rem">Promotional Banners</h3>
+          <div style="display:flex;flex-direction:column;gap:.75rem">
+            <div class="upzone" style="min-height:80px"><div style="pointer-events:none;font-size:13px;color:var(--mid)">📷 Promo Banner 1</div><input type="file" accept="image/*" onchange="toast('Promo banner 1 uploaded!','success')"/></div>
+            <div class="upzone" style="min-height:80px"><div style="pointer-events:none;font-size:13px;color:var(--mid)">📷 Promo Banner 2</div><input type="file" accept="image/*" onchange="toast('Promo banner 2 uploaded!','success')"/></div>
+            <div class="upzone" style="min-height:80px"><div style="pointer-events:none;font-size:13px;color:var(--mid)">📷 Promo Banner 3</div><input type="file" accept="image/*" onchange="toast('Promo banner 3 uploaded!','success')"/></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ADMIN: CATEGORIES -->
+    <div id="v-a-cats" class="hide">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem">
+        <div><h2 style="font-family:'Playfair Display',serif;font-size:24px;font-weight:700">📂 Categories</h2><p style="font-size:14px;color:var(--mid)">Manage product categories</p></div>
+        <button class="btn btn-primary" onclick="openAddCat()">+ Add Category</button>
+      </div>
+      <div class="g4" id="cats-grid"></div>
+    </div>
+
+    <!-- ADMIN: LANDING PAGE EDITOR -->
+    <div id="v-a-landing" class="hide">
+      <h2 style="font-family:'Playfair Display',serif;font-size:24px;font-weight:700;margin-bottom:4px">📄 Landing Page Editor</h2>
+      <p style="font-size:14px;color:var(--mid);margin-bottom:1.25rem">Customize customer & owner landing pages</p>
+      <div class="g2">
+        <div class="card"><h3 style="font-weight:800;margin-bottom:1rem">Customer Landing Page</h3>
+          <div class="fg"><label class="lbl">Hero Headline</label><input class="inp" id="lp-cust-hl" value="Where Joy Meets Every Childhood" oninput="document.querySelector('.cust-hero h1')&&null"/></div>
+          <div class="fg"><label class="lbl">Hero Sub Text</label><textarea class="inp" rows="2" id="lp-cust-st">Safe, educational and endlessly fun toys.</textarea></div>
+          <div class="fg"><label class="lbl">Brand Name Display</label><input class="inp" id="lp-brand" value="EDWANIKSTORE" oninput="pvBrand(this.value)"/></div>
+          <button class="btn btn-primary" onclick="toast('Customer landing page updated! ✅','success')">Save Changes</button>
+        </div>
+        <div class="card"><h3 style="font-weight:800;margin-bottom:1rem">Owner Landing Page</h3>
+          <div class="fg"><label class="lbl">Contact Email (shown on owner page)</label><input class="inp" id="lp-contact" value="support@EDWANIKSTORE.com" oninput="setIfExists('ol-contact-email',this.value)"/></div>
+          <div class="fg"><label class="lbl">WhatsApp (shown on owner page)</label><input class="inp" id="lp-wa" value="+91 9876543210" oninput="setIfExists('ol-wa',this.value)"/></div>
+          <div class="fg"><label class="lbl">Owner Benefits Text</label><textarea class="inp" rows="3" id="lp-own-ben">Join EDWANIKSTORE and grow your toy business online with powerful tools.</textarea></div>
+          <button class="btn btn-primary" onclick="toast('Owner landing page updated! ✅','success')">Save Changes</button>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end main -->
+
+  <!-- FOOTER (customer only) -->
+  <footer id="app-footer" class="hide">
+    <div class="footer-grid">
+      <div>
+        <div class="ft-brand"><div class="ft-brand-logo" id="ft-logo-box"><span id="ft-logo-ph">🧸</span></div><span id="ft-brand-name">EDWANIKSTORE</span></div>
+        <p style="font-size:13px;line-height:1.7;max-width:240px;color:rgba(255,255,255,.5)">Your one-stop destination for safe, fun and educational toys. Fast delivery, WhatsApp support.</p>
+        <div style="margin-top:.75rem;font-size:11px;color:var(--p);font-weight:700;letter-spacing:.5px">🚀 Built by EDWANIKSTUDIO</div>
+      </div>
+      <div class="ft-col"><h4>Quick Links</h4><ul>
+        <li><a onclick="go('home')">🏠 Home</a></li>
+        <li><a onclick="go('products')">🛍️ Products</a></li>
+        <li><a onclick="go('about')">ℹ️ About Us</a></li>
+        <li><a onclick="go('cart')">🛒 Cart</a></li>
+      </ul></div>
+      <div class="ft-col"><h4>Help</h4><ul>
+        <li><a href="#">Free Shipping</a></li>
+        <li><a href="#">WhatsApp Orders</a></li>
+        <li><a href="#">Easy Returns</a></li>
+        <li><a onclick="showScreen('screen-owner-landing')">Owner Portal</a></li>
+      </ul></div>
+      <div class="ft-col"><h4>Contact</h4>
+        <div class="ft-contact"><span>💬</span><span>WhatsApp 24/7</span></div>
+        <div class="ft-contact"><span>📧</span><span id="ft-email">hello@EDWANIKSTORE.com</span></div>
+        <div class="ft-contact"><span>📍</span><span>India · Worldwide Shipping</span></div>
+        <div class="ft-contact"><span>⏰</span><span>Mon–Sat 9AM–8PM IST</span></div>
+      </div>
+    </div>
+    <div class="ft-bottom">
+      <div class="ft-copy">© 2026 <strong>EDWANIKSTUDIO</strong>. All Rights Reserved. | Powered by EDWANIKSTORE</div>
+      <div style="display:flex;gap:6px">
+        <span style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:5px;padding:3px 8px;font-size:11px;color:rgba(255,255,255,.35)">🔒 Secure</span>
+        <span style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:5px;padding:3px 8px;font-size:11px;color:rgba(255,255,255,.35)">💬 WhatsApp</span>
+        <span style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:5px;padding:3px 8px;font-size:11px;color:rgba(255,255,255,.35)">📱 Mobile Ready</span>
+      </div>
+    </div>
+  </footer>
+
+</div><!-- end screen-app -->
+
+<!-- ═══ MODALS ═══ -->
+<!-- Product Modal -->
+<div class="overlay" id="m-prod">
+  <div class="modal modal-lg">
+    <div class="modal-head"><h3 id="m-prod-title">Add New Product</h3><button class="modal-x" onclick="closeM('m-prod')">✕</button></div>
+    <div class="modal-body">
+      <div class="fg"><label class="lbl">Product Name *</label><input class="inp" id="np-name" placeholder="e.g. Teddy Bear Deluxe"/></div>
+      <div class="g2">
+        <div class="fg"><label class="lbl">Price (₹) *</label><input class="inp" type="number" id="np-price" placeholder="499"/></div>
+        <div class="fg"><label class="lbl">Old/MRP Price (₹)</label><input class="inp" type="number" id="np-old" placeholder="699"/></div>
+      </div>
+      <div class="g2">
+        <div class="fg"><label class="lbl">Category *</label><select class="inp" id="np-cat"><option>Plushies</option><option>Vehicles</option><option>Games</option><option>Creative</option><option>Outdoor</option><option>Educational</option></select></div>
+        <div class="fg"><label class="lbl">Stock Qty</label><input class="inp" type="number" id="np-stock" placeholder="100"/></div>
+      </div>
+      <div class="fg"><label class="lbl">Description</label><textarea class="inp" rows="3" id="np-desc" placeholder="Product description..."></textarea></div>
+      <div class="fg"><label class="lbl">Badge</label><select class="inp" id="np-badge"><option value="">None</option><option value="new">New</option><option value="sale">Sale</option><option value="hot">Hot</option><option value="limited">Limited</option><option value="bestseller">Bestseller</option></select></div>
+      <div class="fg">
+        <label class="lbl">Product Images (up to 4) — Upload from Gallery / Desktop</label>
+        <div class="upzone"><div style="pointer-events:none"><div class="upzone-icon">📷</div><p>Tap or click to upload product images</p><em>Multiple images allowed · PNG, JPG · Max 5MB each</em></div><input type="file" accept="image/*" multiple onchange="handleProdImgs(event)"/></div>
+        <div id="np-imgs-preview" style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.75rem"></div>
+      </div>
+      <input type="hidden" id="np-edit-id"/>
+      <button class="btn btn-primary" style="width:100%;justify-content:center;margin-top:.5rem" onclick="saveProd()">Save Product</button>
+    </div>
+  </div>
+</div>
+
+<!-- Create Owner Modal -->
+<div class="overlay" id="m-cown">
+  <div class="modal modal-lg">
+    <div class="modal-head"><h3>Create Owner Account</h3><button class="modal-x" onclick="closeM('m-cown')">✕</button></div>
+    <div class="modal-body">
+      <div class="g2">
+        <div class="fg"><label class="lbl">First Name *</label><input class="inp" id="co-fn" placeholder="John"/></div>
+        <div class="fg"><label class="lbl">Last Name</label><input class="inp" id="co-ln" placeholder="Doe"/></div>
+      </div>
+      <div class="fg"><label class="lbl">Owner Email *</label><input class="inp" id="co-em" type="email" placeholder="owner@business.com"/></div>
+      <div class="fg"><label class="lbl">Mobile</label><input class="inp" id="co-mob" type="tel" placeholder="+91 9876543210"/></div>
+      <div class="fg"><label class="lbl">Store Name *</label><input class="inp" id="co-store" placeholder="My Toy Store"/></div>
+      <div class="fg"><label class="lbl">Login Password *</label><input class="inp" id="co-pw" type="password" placeholder="Create secure password"/></div>
+      <hr style="border:none;border-top:1px solid var(--bd);margin:.75rem 0"/>
+      <div class="fg"><label class="lbl" style="margin-bottom:.75rem">Access Permissions</label>
+        <div class="pg">
+          <div class="pi"><span>Manage Products</span><label class="sw"><input type="checkbox" checked id="pm-prod"><span class="sw-track"></span></label></div>
+          <div class="pi"><span>Manage Orders</span><label class="sw"><input type="checkbox" checked id="pm-ord"><span class="sw-track"></span></label></div>
+          <div class="pi"><span>View Customers</span><label class="sw"><input type="checkbox" checked id="pm-cust"><span class="sw-track"></span></label></div>
+          <div class="pi"><span>Store Settings</span><label class="sw"><input type="checkbox" checked id="pm-set"><span class="sw-track"></span></label></div>
+          <div class="pi"><span>Upload Images</span><label class="sw"><input type="checkbox" checked id="pm-img"><span class="sw-track"></span></label></div>
+          <div class="pi"><span>Offers & Promos</span><label class="sw"><input type="checkbox" id="pm-off"><span class="sw-track"></span></label></div>
+          <div class="pi"><span>Analytics Access</span><label class="sw"><input type="checkbox" id="pm-analytics"><span class="sw-track"></span></label></div>
+          <div class="pi"><span>Landing Page Edit</span><label class="sw"><input type="checkbox" id="pm-landing"><span class="sw-track"></span></label></div>
+        </div>
+      </div>
+      <button class="btn btn-primary" style="width:100%;justify-content:center;margin-top:.5rem" onclick="createOwner()">Create Owner Account →</button>
+    </div>
+  </div>
+</div>
+
+<!-- Edit Permissions Modal -->
+<div class="overlay" id="m-perms">
+  <div class="modal">
+    <div class="modal-head"><h3>Edit Owner Permissions</h3><button class="modal-x" onclick="closeM('m-perms')">✕</button></div>
+    <div class="modal-body">
+      <p style="font-size:14px;color:var(--mid);margin-bottom:1rem">Owner: <strong id="ep-nm">—</strong></p>
+      <div class="pg">
+        <div class="pi"><span>Manage Products</span><label class="sw"><input type="checkbox" id="ep-prod"><span class="sw-track"></span></label></div>
+        <div class="pi"><span>Manage Orders</span><label class="sw"><input type="checkbox" id="ep-ord"><span class="sw-track"></span></label></div>
+        <div class="pi"><span>View Customers</span><label class="sw"><input type="checkbox" id="ep-cust"><span class="sw-track"></span></label></div>
+        <div class="pi"><span>Store Settings</span><label class="sw"><input type="checkbox" id="ep-set"><span class="sw-track"></span></label></div>
+        <div class="pi"><span>Upload Images</span><label class="sw"><input type="checkbox" id="ep-img"><span class="sw-track"></span></label></div>
+        <div class="pi"><span>Offers & Promos</span><label class="sw"><input type="checkbox" id="ep-off"><span class="sw-track"></span></label></div>
+        <div class="pi"><span>Analytics Access</span><label class="sw"><input type="checkbox" id="ep-analytics"><span class="sw-track"></span></label></div>
+        <div class="pi"><span>Landing Page Edit</span><label class="sw"><input type="checkbox" id="ep-landing"><span class="sw-track"></span></label></div>
+      </div>
+      <div class="fg" style="margin-top:1rem"><label class="lbl">Account Status</label><select class="inp" id="ep-status"><option value="active">Active</option><option value="suspended">Suspended</option></select></div>
+      <input type="hidden" id="ep-id"/>
+      <button class="btn btn-primary" style="width:100%;justify-content:center;margin-top:1rem" onclick="savePerms()">Save Permissions</button>
+    </div>
+  </div>
+</div>
+
+<!-- Approve Owner Request Modal -->
+<div class="overlay" id="m-approve">
+  <div class="modal">
+    <div class="modal-head"><h3>Approve Owner Request</h3><button class="modal-x" onclick="closeM('m-approve')">✕</button></div>
+    <div class="modal-body">
+      <div style="background:var(--lt);border-radius:var(--r10);padding:1rem;margin-bottom:1rem">
+        <p style="font-size:14px"><strong>Name:</strong> <span id="apr-name">—</span></p>
+        <p style="font-size:14px;margin-top:4px"><strong>Shop:</strong> <span id="apr-shop">—</span></p>
+        <p style="font-size:14px;margin-top:4px"><strong>Email:</strong> <span id="apr-email">—</span></p>
+        <p style="font-size:14px;margin-top:4px"><strong>Type:</strong> <span id="apr-type">—</span></p>
+      </div>
+      <div class="fg"><label class="lbl">Set Login Password *</label><input class="inp" id="apr-pw" type="password" placeholder="Create password for owner"/></div>
+      <input type="hidden" id="apr-req-id"/>
+      <button class="btn btn-primary" style="width:100%;justify-content:center" onclick="approveRequest()">Approve & Create Account →</button>
+    </div>
+  </div>
+</div>
+
+<!-- Add Category Modal -->
+<div class="overlay" id="m-cat">
+  <div class="modal" style="max-width:380px">
+    <div class="modal-head"><h3>Add Category</h3><button class="modal-x" onclick="closeM('m-cat')">✕</button></div>
+    <div class="modal-body">
+      <div class="fg"><label class="lbl">Category Name *</label><input class="inp" id="nc-name" placeholder="e.g. Building Blocks"/></div>
+      <div class="fg"><label class="lbl">Emoji Icon</label><input class="inp" id="nc-em" placeholder="🧱" maxlength="4"/></div>
+      <div class="fg"><label class="lbl">Category Image (optional)</label>
+        <div class="upzone" style="min-height:90px"><div style="pointer-events:none"><div class="upzone-icon" style="font-size:24px">📷</div><p style="font-size:13px">Upload from gallery</p></div><input type="file" accept="image/*" onchange="upCatImg(event)"/></div>
+        <div id="nc-prev" class="hide" style="margin-top:.5rem;text-align:center"><img id="nc-img" src="" style="width:64px;height:64px;border-radius:50%;object-fit:cover;border:2px solid var(--bd)"/></div>
+      </div>
+      <button class="btn btn-primary" style="width:100%;justify-content:center" onclick="addCat()">Add Category</button>
+    </div>
+  </div>
+</div>
+
+<!-- Add Offer Modal -->
+<div class="overlay" id="m-offer">
+  <div class="modal" style="max-width:420px">
+    <div class="modal-head"><h3>New Offer</h3><button class="modal-x" onclick="closeM('m-offer')">✕</button></div>
+    <div class="modal-body">
+      <div class="fg"><label class="lbl">Offer Title *</label><input class="inp" id="of-title" placeholder="Weekend Sale 20% Off"/></div>
+      <div class="g2">
+        <div class="fg"><label class="lbl">Discount %</label><input class="inp" type="number" id="of-disc" placeholder="20" min="1" max="90"/></div>
+        <div class="fg"><label class="lbl">Applies To</label><select class="inp" id="of-app"><option value="all">All Products</option><option value="category">By Category</option><option value="selected">Selected</option></select></div>
+      </div>
+      <div class="g2">
+        <div class="fg"><label class="lbl">Start Date</label><input class="inp" type="date" id="of-start"/></div>
+        <div class="fg"><label class="lbl">End Date</label><input class="inp" type="date" id="of-end"/></div>
+      </div>
+      <button class="btn btn-primary" style="width:100%;justify-content:center" onclick="saveOffer()">Create Offer</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ════════════════════════════════════════════
+// STATE & DATA
+// ════════════════════════════════════════════
+let CU=null,CV='home',PV='home',dQty=1,waNum='+91 9876543210';
+let waTpl="Hi EDWANIKSTORE! I'd like to order:\n{product} x{qty} = {price}\nPlease confirm.";
+let logoURL=null,newPImgs=[],catImgURL=null,editProdId=null;
+const R={SA:'superadmin',OW:'owner',CU:'customer'};
+
+let users=[
+  {id:'sa1',name:'Super Admin',email:'admin@EDWANIKSTORE.com',password:'Riswan@2005',role:R.SA,mobile:''},
+  {id:'ow1',name:'FunziToys',email:'funzitoys@store.com',password:'Fun@2005',role:R.OW,store:'FunziToys',mobile:'+91 9876543210',perms:{prod:true,ord:true,cust:true,set:true,img:true,off:false,analytics:true,landing:false},status:'active'},
+  {id:'cu1',name:'Arsath',email:'arsath@gmail.com',password:'cust123',role:R.CU,mobile:'+91 9876500001',joined:'2025-01-10'},
+];
+let cats=[
+  {id:'c1',name:'Plushies',emoji:'🧸',img:null},
+  {id:'c2',name:'Vehicles',emoji:'🚗',img:null},
+  {id:'c3',name:'Games',emoji:'🎮',img:null},
+  {id:'c4',name:'Creative',emoji:'🎨',img:null},
+  {id:'c5',name:'Outdoor',emoji:'🏃',img:null},
+  {id:'c6',name:'Educational',emoji:'📚',img:null},
+];
+let prods=[
+  {id:'p1',name:'Teddy Bear Deluxe',cat:'Plushies',price:499,old:699,badge:'bestseller',desc:'Super soft premium teddy bear. Safe for ages 1+. Machine washable & hypoallergenic.',stars:5,rating:4.9,rev:128,imgs:[],isNew:false,stock:50,owner:'ow1'},
+  {id:'p2',name:'RC Racing Car',cat:'Vehicles',price:1299,old:1799,badge:'sale',desc:'Remote-controlled racing car with 2.4GHz control. Up to 30km/h. Rechargeable battery included.',stars:5,rating:4.8,rev:89,imgs:[],isNew:true,stock:30,owner:'ow1'},
+  {id:'p3',name:'Building Blocks 200pc',cat:'Educational',price:799,old:null,badge:'new',desc:'200-piece colorful building blocks. Develops spatial reasoning and creativity for ages 3+.',stars:4,rating:4.7,rev:210,imgs:[],isNew:true,stock:80,owner:'ow2'},
+  {id:'p4',name:'Watercolor Paint Set',cat:'Creative',price:349,old:499,badge:'sale',desc:'24-color professional watercolor paints with brushes. Non-toxic & safe for all ages.',stars:5,rating:4.9,rev:67,imgs:[],isNew:false,stock:120,owner:'ow1'},
+  {id:'p5',name:'Outdoor Frisbee Kit',cat:'Outdoor',price:299,old:null,badge:null,desc:'Aerodynamic frisbee set. Includes 2 frisbees and a premium carrying bag.',stars:4,rating:4.5,rev:43,imgs:[],isNew:false,stock:60,owner:'ow2'},
+  {id:'p6',name:'Strategy Board Game',cat:'Games',price:899,old:1199,badge:'hot',desc:'Award-winning family strategy game for 2–4 players. Ages 8+. 60–90 min playtime.',stars:5,rating:4.8,rev:156,imgs:[],isNew:false,stock:45,owner:'ow1'},
+  {id:'p7',name:'Dino Plush Collection',cat:'Plushies',price:599,old:null,badge:'new',desc:'Set of 3 adorable dinosaur plushies. T-Rex, Triceratops & Brachiosaurus. Ultra-soft.',stars:5,rating:4.9,rev:34,imgs:[],isNew:true,stock:70,owner:'ow2'},
+  {id:'p8',name:'Kids Telescope',cat:'Educational',price:1499,old:1999,badge:'new',desc:'Beginner telescope for curious young minds. Explore stars & moon. Includes star map guide.',stars:5,rating:4.7,rev:28,imgs:[],isNew:true,stock:20,owner:'ow1'},
+];
+let cart=[],wish=[],offers=[],ownerRequests=[],otpStore='';
+let orders=[
+  {id:'ORD001',cid:'cu1',cname:'Arjun Patel',items:[{name:'Teddy Bear Deluxe',qty:1,price:499}],total:499,status:'Delivered',date:'2026-05-10',owner:'ow1'},
+  {id:'ORD002',cid:'cu2',cname:'Meena Devi',items:[{name:'RC Racing Car',qty:1,price:1299}],total:1299,status:'Shipped',date:'2026-05-20',owner:'ow1'},
+  {id:'ORD003',cid:'cu3',cname:'Sam Thomas',items:[{name:'Building Blocks',qty:2,price:1598}],total:1598,status:'Processing',date:'2026-05-25',owner:'ow2'},
+  {id:'ORD004',cid:'cu1',cname:'Arjun Patel',items:[{name:'Watercolor Set',qty:1,price:349}],total:349,status:'Delivered',date:'2026-04-15',owner:'ow1'},
+  {id:'ORD005',cid:'cu2',cname:'Meena Devi',items:[{name:'Dino Plush',qty:1,price:599}],total:599,status:'Delivered',date:'2026-04-20',owner:'ow2'},
+];
+let notifications=[
+  {id:'n1',title:'New order received!',body:'Arjun Patel placed an order for Teddy Bear ×1',type:'order',time:'2 mins ago',read:false},
+  {id:'n2',title:'Product low stock',body:'RC Racing Car has only 5 units left',type:'alert',time:'1 hour ago',read:false},
+  {id:'n3',title:'New customer registered',body:'Sam Thomas joined EDWANIKSTORE',type:'customer',time:'3 hours ago',read:false},
+  {id:'n4',title:'Order delivered',body:'Order ORD001 marked as delivered',type:'order',time:'1 day ago',read:true},
+];
+
+// ════════════════════════════════════════════
+// SCREEN MANAGEMENT
+// ════════════════════════════════════════════
+function showScreen(id){
+  document.querySelectorAll('[id^="screen-"]').forEach(s=>s.classList.add('hide'));
+  const el=document.getElementById(id);
+  if(el)el.classList.remove('hide');
+  if(id==='screen-cust-landing'){rLLProds();rLLCats();}
+}
+function scrollToId(id){const el=document.getElementById(id);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});}
+function setIfExists(id,v){const el=document.getElementById(id);if(el)el.textContent=v;}
+
+// Landing nav scroll effect
+window.addEventListener('scroll',()=>{
+  const nav=document.getElementById('cust-lnav');
+  if(nav){nav.classList.toggle('scrolled',window.scrollY>60);}
+},{passive:true});
+
+// ════════════════════════════════════════════
+// AUTH
+// ════════════════════════════════════════════
+function swCustTab(t){
+  const isLogin=t==='login';
+  document.getElementById('ca-tab-login').style.cssText=isLogin?'background:var(--wh);color:var(--p);box-shadow:var(--sh)':'background:transparent;color:var(--mid);box-shadow:none';
+  document.getElementById('ca-tab-reg').style.cssText=!isLogin?'background:var(--wh);color:var(--p);box-shadow:var(--sh)':'background:transparent;color:var(--mid);box-shadow:none';
+  document.getElementById('ca-login').classList.toggle('hide',!isLogin);
+  document.getElementById('ca-reg').classList.toggle('hide',isLogin);
+}
+function custLogin(){
+  const em=document.getElementById('cl-email').value.trim();
+  const pw=document.getElementById('cl-pass').value;
+  const u=users.find(x=>(x.email===em||x.mobile===em)&&x.password===pw&&x.role===R.CU);
+  if(!u){toast('Invalid credentials. Please try again.','error');return;}
+  loginUser(u);
+}
+function ownerLogin(){
+  const em=document.getElementById('ol-email').value.trim();
+  const pw=document.getElementById('ol-pass').value;
+  const u=users.find(x=>x.email===em&&x.password===pw&&(x.role===R.OW||x.role===R.SA));
+  if(!u){toast('Invalid owner credentials.','error');return;}
+  if(u.status==='suspended'){toast('Account suspended. Contact admin.','error');return;}
+  loginUser(u);
+}
+function adminLogin(){
+  const em=document.getElementById('adm-email').value.trim();
+  const pw=document.getElementById('adm-pass').value;
+  const u=users.find(x=>x.email===em&&x.password===pw&&x.role===R.SA);
+  if(!u){toast('Invalid admin credentials.','error');return;}
+  loginUser(u);
+}
+let pendingRegUser=null;
+function sendOTP(){
+  const fn=document.getElementById('cr-fn').value.trim();
+  const em=document.getElementById('cr-email').value.trim();
+  const pw=document.getElementById('cr-pass').value;
+  if(!fn||!em||!pw){toast('Please fill all required fields','error');return;}
+  if(users.find(u=>u.email===em)){toast('Email already registered. Please login.','error');return;}
+  if(pw.length<6){toast('Password must be at least 6 characters','error');return;}
+  otpStore='123456'; // Simulated OTP
+  pendingRegUser={fn,ln:document.getElementById('cr-ln').value,em,pw,mob:document.getElementById('cr-mob').value};
+  document.getElementById('otp-sent-to').textContent=`OTP sent to ${em}`;
+  document.getElementById('ca-reg-step1').classList.add('hide');
+  document.getElementById('ca-reg-step2').classList.remove('hide');
+  toast(`📧 OTP sent to ${em} (Demo: 123456)`,'info');
+}
+function otpNext(inp,idx){
+  if(inp.value.length===1&&idx<5){document.getElementById('otp'+(idx+1)).focus();}
+  if(inp.value.length===0&&idx>0){document.getElementById('otp'+(idx-1)).focus();}
+}
+function verifyOTP(){
+  const entered=[0,1,2,3,4,5].map(i=>document.getElementById('otp'+i).value).join('');
+  if(entered!==otpStore){toast('Incorrect OTP. Try again.','error');return;}
+  if(!pendingRegUser){return;}
+  const nu={id:'cu'+Date.now(),name:pendingRegUser.fn+' '+pendingRegUser.ln,email:pendingRegUser.em,password:pendingRegUser.pw,role:R.CU,mobile:pendingRegUser.mob,joined:new Date().toISOString().slice(0,10)};
+  users.push(nu);
+  toast('✅ Account created successfully! Welcome!','success');
+  loginUser(nu);
+}
+function loginUser(u){
+  CU=u;
+  showScreen('screen-app');
+  setupRole(u);
+  addNotif('Welcome back!',`Logged in as ${u.name}`,'info');
+  go(u.role===R.SA?'a-dash':u.role===R.OW?'o-dash':'home');
+}
+function setupRole(u){
+  // Nav
+  document.getElementById('nav-nm').textContent=u.name.split(' ')[0];
+  const rl={superadmin:'Super Admin',owner:'Shop Owner',customer:'Customer'};
+  document.getElementById('nav-rl').textContent=rl[u.role];
+  document.getElementById('nav-av').textContent=u.name[0].toUpperCase();
+  document.getElementById('ud-name').textContent=u.name;
+  document.getElementById('ud-email').textContent=u.email;
+  const isCust=u.role===R.CU;
+  // Sidebar
+  document.getElementById('sb-cust').classList.toggle('hide',!isCust);
+  document.getElementById('sb-own').classList.toggle('hide',u.role!==R.OW);
+  document.getElementById('sb-adm').classList.toggle('hide',u.role!==R.SA);
+  // Nav items
+  document.getElementById('nav-links').classList.toggle('hide',!isCust);
+  document.getElementById('nav-search').classList.toggle('hide',!isCust);
+  document.getElementById('nav-wish-btn').classList.toggle('hide',!isCust);
+  document.getElementById('nav-cart-btn').classList.toggle('hide',!isCust);
+  document.getElementById('nav-notif-btn').classList.remove('hide');
+  document.getElementById('ud-profile').classList.toggle('hide',!isCust);
+  document.getElementById('ud-orders').classList.toggle('hide',!isCust);
+  document.getElementById('ud-own').classList.toggle('hide',u.role!==R.OW);
+  document.getElementById('ud-adm').classList.toggle('hide',u.role!==R.SA);
+  // Footer
+  document.getElementById('app-footer').classList.toggle('hide',!isCust);
+  // Hero edit zone
+  if(u.role===R.OW||u.role===R.SA){
+    document.getElementById('hero-edit-zone').classList.remove('hide');
+  }
+  // Open sidebar by default on desktop
+  if(window.innerWidth>900){
+    document.getElementById('sidebar').classList.remove('closed');
+    document.getElementById('main').style.marginLeft='232px';
+  }
+  updBadges();
+  rNotifBadge();
+  rAdminReqBadge();
+}
+function doLogout(){
+  CU=null;cart=[];wish=[];
+  showScreen('screen-cust-landing');
+  closeUD();
+  toast('Logged out successfully','info');
+}
+
+// ════════════════════════════════════════════
+// NAVIGATION
+// ════════════════════════════════════════════
+function go(v){
+  PV=CV;CV=v;
+  document.querySelectorAll('[id^="v-"]').forEach(el=>el.classList.add('hide'));
+  const el=document.getElementById('v-'+v);
+  if(el)el.classList.remove('hide');
+  document.querySelectorAll('.sb-item').forEach(s=>s.classList.remove('on'));
+  document.querySelectorAll('.nav-lnk').forEach(l=>l.classList.remove('on'));
+  // Render
+  if(v==='home'){rCatChips();rHomeProds();}
+  if(v==='products')rAllProds();
+  if(v==='cart')rCart();
+  if(v==='wishlist')rWish();
+  if(v==='profile')rProfileWL();
+  if(v==='orders')rOrders();
+  if(v==='notifications')rNotifs();
+  if(v==='o-prods')rOwnerProdsTbl();
+  if(v==='o-orders')rOwnerOrdsTbl();
+  if(v==='o-custs')rOwnerCustsTbl();
+  if(v==='o-offers')rOffers();
+  if(v==='o-dash')updOwnerStats();
+  if(v==='o-analytics')rAnalytics('owner');
+  if(v==='a-owners')rAdminOwnsTbl();
+  if(v==='a-requests')rReqTable();
+  if(v==='a-custs')rAdminCustsTbl();
+  if(v==='a-prods')rAdminProdsTbl();
+  if(v==='a-orders')rAdminOrdsTbl();
+  if(v==='a-cats')rCats();
+  if(v==='a-analytics')rAnalytics('admin');
+  if(v==='a-dash'){document.getElementById('as-prods').textContent=prods.length;document.getElementById('as-req').textContent=ownerRequests.filter(r=>r.status==='pending').length;}
+  // Footer
+  const isCust=CU?.role===R.CU;
+  document.getElementById('app-footer').classList.toggle('hide',!isCust);
+  window.scrollTo(0,0);
+}
+function goDash(){go(CU?.role===R.SA?'a-dash':CU?.role===R.OW?'o-dash':'home');}
+function goBack(){go(PV||'home');}
+function togSB(){
+  const sb=document.getElementById('sidebar');
+  sb.classList.toggle('closed');
+  sb.classList.toggle('mob-open');
+  const mc=document.getElementById('main');
+  if(window.innerWidth>900){
+    mc.style.marginLeft=sb.classList.contains('closed')?'0':'232px';
+  }
+}
+function togUD(){document.getElementById('udrop').classList.toggle('hide');}
+function closeUD(){document.getElementById('udrop').classList.add('hide');}
+document.addEventListener('click',e=>{
+  if(!e.target.closest('.upill')&&!e.target.closest('#udrop'))closeUD();
+  if(!e.target.closest('#sidebar')&&!e.target.closest('#sb-toggle')&&window.innerWidth<=900){
+    document.getElementById('sidebar').classList.remove('mob-open');
+  }
+});
+
+// ════════════════════════════════════════════
+// LANDING PAGE DATA
+// ════════════════════════════════════════════
+function rLLProds(){
+  const g=document.getElementById('ll-prod-grid');if(!g)return;
+  g.innerHTML=prods.slice(0,4).map(p=>`
+    <div class="prod-card card-hover" onclick="showScreen('screen-cust-auth')">
+      <div class="prod-img">${p.imgs&&p.imgs.length?`<img src="${p.imgs[0]}"/>`:`<div class="prod-img-ph"><div class="prod-img-ph-icon">📦</div><div class="prod-img-ph-text">${p.name}</div></div>`}
+        ${p.badge?`<div class="prod-badge-wrap"><span class="tag ${p.badge==='new'?'tag-g':p.badge==='sale'?'tag-r':'tag-y'}">${p.badge.toUpperCase()}</span></div>`:''}
+      </div>
+      <div class="prod-info"><div class="prod-cat">${p.cat}</div><div class="prod-name">${p.name}</div>
+        <div class="prod-stars">${'⭐'.repeat(p.stars)}<span>(${p.rev})</span></div>
+        <div class="prod-foot"><div><span class="prod-price">₹${p.price.toLocaleString()}</span>${p.old?`<span class="prod-old">₹${p.old.toLocaleString()}</span>`:''}</div>
+          <button class="prod-add" onclick="event.stopPropagation();showScreen('screen-cust-auth')">Shop →</button>
+        </div>
+      </div>
+    </div>`).join('');
+}
+function rLLCats(){
+  const g=document.getElementById('ll-cats-grid');if(!g)return;
+  g.innerHTML=cats.map(c=>`
+    <div class="feature-card card-hover" style="text-align:center;cursor:pointer" onclick="showScreen('screen-cust-auth')">
+      ${c.img?`<img src="${c.img}" style="width:64px;height:64px;border-radius:50%;object-fit:cover;margin:0 auto .75rem;display:block"/>`:`<div style="font-size:52px;margin-bottom:.75rem">${c.emoji}</div>`}
+      <div style="font-weight:800;font-size:16px;margin-bottom:4px">${c.name}</div>
+      <div style="font-size:13px;color:var(--mid)">${prods.filter(p=>p.cat===c.name).length} products</div>
+    </div>`).join('');
+}
+
+// ════════════════════════════════════════════
+// OWNER ACCESS REQUESTS
+// ════════════════════════════════════════════
+function submitOAR(){
+  const name=document.getElementById('oar-name').value.trim();
+  const shop=document.getElementById('oar-shop').value.trim();
+  const email=document.getElementById('oar-email').value.trim();
+  const phone=document.getElementById('oar-phone').value.trim();
+  const type=document.getElementById('oar-type').value;
+  if(!name||!shop||!email||!phone||!type){toast('Please fill all required fields','error');return;}
+  ownerRequests.push({id:'req'+Date.now(),name,shop,email,phone,type,msg:document.getElementById('oar-msg').value,date:new Date().toLocaleDateString(),status:'pending'});
+  addNotif('New Owner Request',`${name} from ${shop} requested owner access`,'alert');
+  rAdminReqBadge();
+  ['oar-name','oar-shop','oar-email','oar-phone','oar-msg'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('oar-type').value='';
+  toast('✅ Request submitted! We will review within 24 hours.','success');
+}
+function rReqTable(){
+  const tb=document.getElementById('req-tb');if(!tb)return;
+  const pending=ownerRequests.filter(r=>r.status==='pending');
+  const el=document.getElementById('req-count-lbl');if(el)el.textContent=`${pending.length} pending`;
+  if(document.getElementById('as-req'))document.getElementById('as-req').textContent=pending.length;
+  tb.innerHTML=ownerRequests.map(r=>`<tr>
+    <td><strong>${r.name}</strong></td><td>${r.shop}</td><td>${r.email}</td><td>${r.phone}</td><td><span class="tag tag-b">${r.type}</span></td><td>${r.date}</td>
+    <td><div class="act">
+      ${r.status==='pending'?`<button class="act-btn av" onclick="openApprove('${r.id}')" title="Approve">✅</button><button class="act-btn ad" onclick="rejectReq('${r.id}')" title="Reject">❌</button>`:
+      `<span class="tag ${r.status==='approved'?'tag-g':'tag-r'}">${r.status}</span>`}
+    </div></td>
+  </tr>`).join('')||`<tr><td colspan="7" style="text-align:center;color:var(--mid);padding:2rem">No requests yet</td></tr>`;
+}
+function openApprove(id){
+  const r=ownerRequests.find(x=>x.id===id);if(!r)return;
+  document.getElementById('apr-name').textContent=r.name;
+  document.getElementById('apr-shop').textContent=r.shop;
+  document.getElementById('apr-email').textContent=r.email;
+  document.getElementById('apr-type').textContent=r.type;
+  document.getElementById('apr-req-id').value=id;
+  document.getElementById('apr-pw').value='';
+  openM('m-approve');
+}
+function approveRequest(){
+  const id=document.getElementById('apr-req-id').value;
+  const pw=document.getElementById('apr-pw').value;
+  if(!pw){toast('Please set a password','error');return;}
+  const r=ownerRequests.find(x=>x.id===id);if(!r)return;
+  r.status='approved';
+  users.push({id:'ow'+Date.now(),name:r.name,email:r.email,password:pw,role:R.OW,store:r.shop,mobile:r.phone,status:'active',perms:{prod:true,ord:true,cust:true,set:true,img:true,off:false,analytics:false,landing:false}});
+  closeM('m-approve');
+  rReqTable();rAdminOwnsTbl();
+  addNotif('Owner Approved',`${r.name} has been approved as owner`,'customer');
+  toast(`✅ Owner account created for ${r.name}!`,'success');
+}
+function rejectReq(id){
+  const r=ownerRequests.find(x=>x.id===id);if(!r)return;
+  r.status='rejected';rReqTable();
+  toast('Request rejected','info');
+}
+function rAdminReqBadge(){
+  const n=ownerRequests.filter(r=>r.status==='pending').length;
+  const el=document.getElementById('sb-req-badge');if(el)el.textContent=n;
+  if(document.getElementById('as-req'))document.getElementById('as-req').textContent=n;
+}
+
+// ════════════════════════════════════════════
+// PRODUCTS
+// ════════════════════════════════════════════
+const catMap={Plushies:'🧸',Vehicles:'🚗',Games:'🎲',Creative:'🎨',Outdoor:'🏃',Educational:'📚'};
+function pImgHtml(p,size=''){
+  if(p.imgs&&p.imgs.length)return`<img src="${p.imgs[0]}" style="width:100%;height:100%;object-fit:cover${size}"/>`;
+  return`<div class="prod-img-ph"><div class="prod-img-ph-icon">${catMap[p.cat]||'📦'}</div><div class="prod-img-ph-text">No image uploaded</div></div>`;
+}
+function pCard(p){
+  const inW=wish.some(w=>w.id===p.id);
+  const tc=p.badge==='new'?'tag-g':p.badge==='sale'?'tag-r':'tag-y';
+  return`<div class="prod-card" onclick="openDetail('${p.id}')">
+    <div class="prod-img">
+      ${pImgHtml(p)}
+      ${p.badge?`<div class="prod-badge-wrap"><span class="tag ${tc}">${p.badge.toUpperCase()}</span></div>`:''}
+      <button class="prod-wish" onclick="event.stopPropagation();togWish('${p.id}')">${inW?'❤️':'🤍'}</button>
+    </div>
+    <div class="prod-info">
+      <div class="prod-cat">${p.cat}</div>
+      <div class="prod-name">${p.name}</div>
+      <div class="prod-stars">${'⭐'.repeat(p.stars)}<span>(${p.rev})</span></div>
+      <div class="prod-foot">
+        <div><span class="prod-price">₹${p.price.toLocaleString()}</span>${p.old?`<span class="prod-old">₹${p.old.toLocaleString()}</span>`:''}</div>
+        <button class="prod-add" onclick="event.stopPropagation();addCart('${p.id}')">🛒 Add</button>
+      </div>
+    </div>
+  </div>`;
+}
+function rCatChips(){
+  const el=document.getElementById('cat-chips');if(!el)return;
+  el.innerHTML=`<div class="cat-chip on" onclick="fltCatHome('')">All</div>`+
+    cats.map(c=>`<div class="cat-chip" onclick="fltCatHome('${c.name}')">${c.img?`<img src="${c.img}"/>`:`<span>${c.emoji}</span>`} ${c.name}</div>`).join('');
+  // Populate filter select
+  const sel=document.getElementById('cat-filter');
+  if(sel&&sel.options.length<=1)cats.forEach(c=>{const o=document.createElement('option');o.value=c.name;o.textContent=c.emoji+' '+c.name;sel.appendChild(o);});
+}
+function rHomeProds(){
+  const fg=document.getElementById('home-feat'),ng=document.getElementById('home-new');
+  if(fg)fg.innerHTML=prods.slice(0,4).map(pCard).join('');
+  if(ng)ng.innerHTML=prods.filter(p=>p.isNew).slice(0,4).map(pCard).join('');
+}
+function rAllProds(list){
+  const g=document.getElementById('all-prods');if(!g)return;
+  const arr=list||prods;
+  g.innerHTML=arr.length?arr.map(pCard).join(''):`<div style="text-align:center;padding:3rem;color:var(--mid)"><div style="font-size:48px">🔍</div><p style="font-weight:600">No products found</p></div>`;
+}
+function hSrch(v){
+  const arr=v?prods.filter(p=>p.name.toLowerCase().includes(v.toLowerCase())||p.cat.toLowerCase().includes(v.toLowerCase())):prods;
+  if(CV!=='products'){go('products');setTimeout(()=>rAllProds(arr),30);}else rAllProds(arr);
+}
+function fltCat(c){rAllProds(c?prods.filter(p=>p.cat===c):prods);}
+function fltCatHome(cat){
+  document.querySelectorAll('.cat-chip').forEach(c=>c.classList.toggle('on',!cat?c.textContent.trim()==='All':c.textContent.includes(cat)));
+  if(!cat){rHomeProds();return;}
+  go('products');setTimeout(()=>rAllProds(prods.filter(p=>p.cat===cat)),30);
+}
+function sortProd(v){
+  let arr=[...prods];
+  if(v==='pa')arr.sort((a,b)=>a.price-b.price);
+  else if(v==='pd')arr.sort((a,b)=>b.price-a.price);
+  else if(v==='rt')arr.sort((a,b)=>b.rating-a.rating);
+  else if(v==='nw')arr.sort((a,b)=>b.isNew-a.isNew);
+  rAllProds(arr);
+}
+function openDetail(id){
+  const p=prods.find(x=>x.id===id);if(!p)return;
+  dQty=1;
+  const disc=p.old?Math.round((1-p.price/p.old)*100):0;
+  const hasImgs=p.imgs&&p.imgs.length;
+  const mainImg=hasImgs?`<img src="${p.imgs[0]}" id="d-main" style="width:100%;height:100%;object-fit:cover"/>`:`<div class="prod-img-ph" style="height:100%;min-height:300px"><div class="prod-img-ph-icon">${catMap[p.cat]||'📦'}</div><div class="prod-img-ph-text">No image uploaded yet</div></div>`;
+  const thumbs=hasImgs&&p.imgs.length>1?p.imgs.map((s,i)=>`<div class="dthumb ${i===0?'on':''}" onclick="swDImg('${s}',this)"><img src="${s}"/></div>`).join(''):'';
+  document.getElementById('detail-inner').innerHTML=`
+    <div>
+      <div class="detail-main-img">${mainImg}</div>
+      ${thumbs?`<div class="detail-thumbs">${thumbs}</div>`:''}
+    </div>
+    <div>
+      <div style="font-size:11px;color:var(--p);font-weight:800;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">${p.cat}</div>
+      <h1 style="font-family:'Playfair Display',serif;font-size:30px;font-weight:700;margin-bottom:.75rem;line-height:1.2;color:var(--dk)">${p.name}</h1>
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:1rem;font-size:14px"><span style="color:#F59E0B">${'⭐'.repeat(p.stars)}</span><strong>${p.rating}</strong><span style="color:var(--mid)">(${p.rev} reviews)</span></div>
+      <div style="display:flex;align-items:baseline;gap:.75rem;margin-bottom:1rem">
+        <span style="font-family:'Playfair Display',serif;font-size:36px;font-weight:700;color:var(--p)">₹${p.price.toLocaleString()}</span>
+        ${p.old?`<span style="font-size:18px;color:var(--bd2);text-decoration:line-through">₹${p.old.toLocaleString()}</span><span class="tag tag-r">${disc}% OFF</span>`:''}
+      </div>
+      <p style="color:var(--mid);font-size:14px;line-height:1.75;margin-bottom:1.25rem">${p.desc}</p>
+      <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.25rem">
+        <span style="font-weight:700;font-size:14px">Qty:</span>
+        <div class="qty-ctrl">
+          <button class="qb" onclick="chDQty(-1)">−</button>
+          <span class="qv" id="d-qty">1</span>
+          <button class="qb" onclick="chDQty(1)">+</button>
+        </div>
+        <span style="font-size:13px;color:var(--mid)">${p.stock} in stock</span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:.75rem">
+        <button class="btn btn-primary btn-lg" style="justify-content:center" onclick="addCartQ('${p.id}')">🛒 Add to Cart</button>
+        <button class="btn btn-lg" style="justify-content:center;background:#25D366;color:#fff" onclick="ordWA('${p.id}')">💬 Order via WhatsApp</button>
+        <button class="btn btn-outline" style="justify-content:center" id="d-wish-btn" onclick="togWish('${p.id}');this.innerHTML=wish.some(w=>w.id==='${p.id}')?'❤️ In Wishlist':'🤍 Add to Wishlist'">${wish.some(w=>w.id===p.id)?'❤️ In Wishlist':'🤍 Add to Wishlist'}</button>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-top:1.25rem">
+        <div style="background:var(--lt);border-radius:var(--r10);padding:.7rem;display:flex;gap:.5rem;align-items:center;font-size:13px;font-weight:600">🛡️ Safety Tested</div>
+        <div style="background:var(--lt);border-radius:var(--r10);padding:.7rem;display:flex;gap:.5rem;align-items:center;font-size:13px;font-weight:600">🚀 Fast Delivery</div>
+        <div style="background:var(--lt);border-radius:var(--r10);padding:.7rem;display:flex;gap:.5rem;align-items:center;font-size:13px;font-weight:600">↩️ 7-Day Returns</div>
+        <div style="background:var(--lt);border-radius:var(--r10);padding:.7rem;display:flex;gap:.5rem;align-items:center;font-size:13px;font-weight:600">💬 WA Support</div>
+      </div>
+    </div>`;
+  const rg=document.getElementById('related');
+  if(rg)rg.innerHTML=prods.filter(x=>x.cat===p.cat&&x.id!==p.id).slice(0,4).map(pCard).join('');
+  go('detail');
+}
+function swDImg(src,el){const m=document.getElementById('d-main');if(m)m.src=src;document.querySelectorAll('.dthumb').forEach(t=>t.classList.remove('on'));el.classList.add('on');}
+function chDQty(d){dQty=Math.max(1,dQty+d);const el=document.getElementById('d-qty');if(el)el.textContent=dQty;}
+
+// ════════════════════════════════════════════
+// CART
+// ════════════════════════════════════════════
+function addCart(id){
+  if(!CU||CU.role!==R.CU){toast('Please login as customer to add to cart','info');return;}
+  const p=prods.find(x=>x.id===id),ex=cart.find(c=>c.id===id);
+  if(ex)ex.qty++;else cart.push({...p,qty:1});
+  updBadges();toast(`${p.name} added to cart! 🛒`,'success');
+}
+function addCartQ(id){
+  if(!CU||CU.role!==R.CU){toast('Please login as customer','info');return;}
+  const p=prods.find(x=>x.id===id),ex=cart.find(c=>c.id===id);
+  if(ex)ex.qty+=dQty;else cart.push({...p,qty:dQty});
+  updBadges();toast(`${p.name} ×${dQty} added to cart!`,'success');
+}
+function chCartQty(id,d){
+  const ex=cart.find(c=>c.id===id);if(!ex)return;
+  ex.qty+=d;if(ex.qty<=0)cart=cart.filter(c=>c.id!==id);
+  updBadges();rCart();
+}
+function remCart(id){cart=cart.filter(c=>c.id!==id);updBadges();rCart();}
+function rCart(){
+  const empty=!cart.length;
+  const itemsEl=document.getElementById('cart-items-wrap');
+  const sumEl=document.getElementById('order-sum-box');
+  const emptyEl=document.getElementById('cart-empty-state');
+  if(itemsEl)itemsEl.classList.toggle('hide',empty);
+  if(sumEl)sumEl.classList.toggle('hide',empty);
+  if(emptyEl)emptyEl.classList.toggle('hide',!empty);
+  document.getElementById('cart-info').textContent=`${cart.reduce((s,i)=>s+i.qty,0)} items in your cart`;
+  if(empty)return;
+  if(itemsEl)itemsEl.innerHTML=cart.map(i=>`
+    <div class="cart-item">
+      <div class="cart-item-img">${i.imgs&&i.imgs.length?`<img src="${i.imgs[0]}"/>`:`<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:32px">${catMap[i.cat]||'📦'}</div>`}</div>
+      <div style="flex:1">
+        <div style="font-size:15px;font-weight:700;margin-bottom:3px">${i.name}</div>
+        <div style="font-size:12px;color:var(--mid);margin-bottom:6px">${i.cat}</div>
+        <div style="font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--p)">₹${(i.price*i.qty).toLocaleString()}</div>
+        <div style="display:flex;align-items:center;gap:.75rem;margin-top:8px">
+          <div class="qty-ctrl" style="transform:scale(.9);transform-origin:left">
+            <button class="qb" onclick="chCartQty('${i.id}',-1)">−</button>
+            <span class="qv">${i.qty}</span>
+            <button class="qb" onclick="chCartQty('${i.id}',1)">+</button>
+          </div>
+          <button onclick="remCart('${i.id}')" style="background:var(--r);color:#fff;border:none;border-radius:var(--r6);padding:5px 10px;cursor:pointer;font-size:12px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:600">Remove</button>
+        </div>
+      </div>
+      <div style="font-size:12px;color:var(--mid);text-align:right;flex-shrink:0">₹${i.price}/ea</div>
+    </div>`).join('');
+  const tot=cart.reduce((s,i)=>s+i.price*i.qty,0);
+  document.getElementById('sum-sub').textContent='₹'+tot.toLocaleString();
+  document.getElementById('sum-tot').textContent='₹'+tot.toLocaleString();
+}
+function chkWA(){
+  if(!cart.length){toast('Cart is empty','error');return;}
+  const num=waNum.replace(/\D/g,'');
+  const items=cart.map(i=>`• ${i.name} ×${i.qty} = ₹${(i.price*i.qty).toLocaleString()}`).join('\n');
+  const tot=cart.reduce((s,i)=>s+i.price*i.qty,0);
+  const msg=`Hi EDWANIKSTORE! I'd like to place an order:\n\n${items}\n\nTotal: ₹${tot.toLocaleString()}\n\nCustomer: ${CU?.name||'Customer'}\nPhone: ${CU?.mobile||'N/A'}\n\nPlease confirm availability & delivery details. Thank you!`;
+  window.open(`https://wa.me/${num}?text=${encodeURIComponent(msg)}`,'_blank');
+  addNotif('Order placed via WhatsApp',`${cart.length} item(s) sent to WhatsApp for confirmation`,'order');
+}
+function ordWA(id){
+  const p=prods.find(x=>x.id===id),num=waNum.replace(/\D/g,'');
+  const msg=waTpl.replace('{product}',`${p.name}`).replace('{qty}',dQty).replace('{price}','₹'+(p.price*dQty).toLocaleString());
+  window.open(`https://wa.me/${num}?text=${encodeURIComponent(msg)}`,'_blank');
+}
+function saveWA(){waNum=document.getElementById('wa-num').value;waTpl=document.getElementById('wa-tpl').value;toast('WhatsApp settings saved! 💬','success');}
+
+// ════════════════════════════════════════════
+// WISHLIST
+// ════════════════════════════════════════════
+function togWish(id){
+  if(!CU||CU.role!==R.CU){toast('Login as customer to use wishlist','info');return;}
+  const p=prods.find(x=>x.id===id),idx=wish.findIndex(w=>w.id===id);
+  if(idx>=0){wish.splice(idx,1);toast('Removed from wishlist','info');}
+  else{wish.push(p);toast(`${p.name} added to wishlist ❤️`,'success');}
+  updBadges();rHomeProds();
+  if(CV==='products')rAllProds();
+  if(CV==='wishlist')rWish();
+}
+function rWish(){
+  const g=document.getElementById('wish-grid'),e=document.getElementById('wish-empty');
+  if(!wish.length){if(g)g.innerHTML='';if(e)e.classList.remove('hide');return;}
+  if(e)e.classList.add('hide');
+  if(g)g.innerHTML=wish.map(pCard).join('');
+}
+
+// ════════════════════════════════════════════
+// PROFILE & ORDERS
+// ════════════════════════════════════════════
+function swPT(t,el){
+  document.querySelectorAll('.pnav-item').forEach(i=>i.classList.remove('on'));
+  ['pt-info','pt-addr','pt-ords','pt-wl'].forEach(id=>{const d=document.getElementById(id);if(d)d.classList.add('hide');});
+  el.classList.add('on');
+  document.getElementById('pt-'+t)?.classList.remove('hide');
+  if(t==='ords')rPOrds();
+  if(t==='wl')rProfileWL();
+}
+function savePrf(){
+  const fn=document.getElementById('p-fn').value,ln=document.getElementById('p-ln').value;
+  if(fn){document.getElementById('pav-name').textContent=fn+' '+ln;document.getElementById('nav-nm').textContent=fn;}
+  toast('Profile saved! ✅','success');
+}
+function rProfileWL(){
+  const el=document.getElementById('p-wl-list');if(!el)return;
+  if(!wish.length){el.innerHTML='<p style="color:var(--mid);font-size:14px">No wishlist items yet. Click ❤️ on any product.</p>';return;}
+  el.innerHTML=wish.map(p=>`<div style="display:flex;align-items:center;gap:1rem;padding:.9rem 0;border-bottom:1px solid var(--bd)">
+    <div style="width:52px;height:52px;border-radius:var(--r10);overflow:hidden;background:var(--lt2);flex-shrink:0">${p.imgs&&p.imgs.length?`<img src="${p.imgs[0]}" style="width:100%;height:100%;object-fit:cover"/>`:`<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:26px">${catMap[p.cat]||'📦'}</div>`}</div>
+    <div style="flex:1"><div style="font-weight:700">${p.name}</div><div style="font-size:13px;color:var(--p);font-weight:600">₹${p.price.toLocaleString()}</div></div>
+    <button onclick="addCart('${p.id}')" class="btn btn-primary btn-sm">Add to Cart</button>
+  </div>`).join('');
+}
+function rPOrds(){
+  const el=document.getElementById('p-ords-list');if(!el)return;
+  const myO=orders.filter(o=>o.cid===(CU?.id||'cu1'));
+  if(!myO.length){el.innerHTML='<p style="color:var(--mid)">No orders yet.</p>';return;}
+  el.innerHTML=myO.map(o=>`<div style="display:flex;align-items:center;justify-content:space-between;padding:.75rem 0;border-bottom:1px solid var(--bd)"><div><strong>${o.id}</strong><div style="font-size:12px;color:var(--mid)">${o.date} · ${o.items.map(i=>i.name).join(', ')}</div></div><div style="text-align:right"><div style="font-weight:700;color:var(--p)">₹${o.total.toLocaleString()}</div><span class="tag ${o.status==='Delivered'?'tag-g':o.status==='Shipped'?'tag-b':'tag-y'}">${o.status}</span></div></div>`).join('');
+}
+function rOrders(){
+  const el=document.getElementById('orders-list');if(!el)return;
+  const myO=orders.filter(o=>o.cid===(CU?.id||'cu1'));
+  if(!myO.length){el.innerHTML=`<div style="text-align:center;padding:4rem;color:var(--mid)"><div style="font-size:52px">📦</div><p style="font-weight:700;font-size:16px;margin-top:.75rem">No orders yet</p><p style="font-size:13px;margin:.5rem 0 1.5rem">Place your first order via WhatsApp!</p></div>`;return;}
+  el.innerHTML=myO.map(o=>`<div class="card" style="margin-bottom:.75rem"><div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.75rem"><div><strong style="font-size:15px">${o.id}</strong><div style="font-size:12px;color:var(--mid);margin-top:2px">${o.date}</div></div><span class="tag ${o.status==='Delivered'?'tag-g':o.status==='Shipped'?'tag-b':'tag-y'}">${o.status}</span></div><div style="font-size:14px;color:var(--mid)">${o.items.map(i=>`${i.name} ×${i.qty}`).join(', ')}</div><div style="font-weight:700;color:var(--p);margin-top:.5rem;font-family:'Playfair Display',serif;font-size:18px">₹${o.total.toLocaleString()}</div></div>`).join('');
+}
+function upAvatar(e){
+  const f=e.target.files[0];if(!f)return;
+  const r=new FileReader();
+  r.onload=ev=>{
+    const img=document.getElementById('pav-img');img.src=ev.target.result;img.classList.remove('hide');
+    document.getElementById('pav-ph').style.display='none';
+    document.getElementById('nav-av').innerHTML=`<img src="${ev.target.result}" style="width:100%;height:100%;object-fit:cover;border-radius:50%"/>`;
+    toast('Profile photo updated!','success');
+  };r.readAsDataURL(f);
+}
+
+// ════════════════════════════════════════════
+// NOTIFICATIONS
+// ════════════════════════════════════════════
+function addNotif(title,body,type='info'){
+  notifications.unshift({id:'n'+Date.now(),title,body,type,time:'Just now',read:false});
+  rNotifBadge();
+}
+function rNotifBadge(){
+  const n=notifications.filter(x=>!x.read).length;
+  document.getElementById('notif-count').textContent=n;
+  document.getElementById('sb-notif').textContent=n;
+  document.getElementById('notif-count').style.display=n>0?'flex':'none';
+}
+function rNotifs(){
+  const el=document.getElementById('notif-list');if(!el)return;
+  el.innerHTML=notifications.map(n=>`
+    <div class="notif-item ${n.read?'':'unread'}" onclick="markRead('${n.id}')">
+      <div class="notif-dot ${n.read?'read':''}"></div>
+      <div style="flex:1"><div style="font-weight:700;font-size:14px">${n.title}</div><div style="font-size:13px;color:var(--mid);margin-top:2px">${n.body}</div><div style="font-size:11px;color:var(--bd2);margin-top:4px">${n.time}</div></div>
+      <span class="tag ${n.type==='order'?'tag-g':n.type==='alert'?'tag-r':n.type==='customer'?'tag-b':'tag-mid'}" style="font-size:10px;flex-shrink:0">${n.type}</span>
+    </div>`).join('')||'<div style="text-align:center;padding:2rem;color:var(--mid)">No notifications yet</div>';
+}
+function markRead(id){const n=notifications.find(x=>x.id===id);if(n)n.read=true;rNotifs();rNotifBadge();}
+function markAllRead(){notifications.forEach(n=>n.read=true);rNotifs();rNotifBadge();toast('All notifications marked as read','success');}
+
+// ════════════════════════════════════════════
+// IMAGE UPLOADS
+// ════════════════════════════════════════════
+function upLogo(e){
+  const f=e.target.files[0];if(!f)return;
+  const r=new FileReader();
+  r.onload=ev=>{
+    logoURL=ev.target.result;
+    // Update all logo spots
+    const spots=['nav-logo-ph','ft-logo-ph','ll-logo-ph','ol-logo-ph','ca-logo-ph','oa-brand'];
+    spots.forEach(id=>{
+      const el=document.getElementById(id);if(!el)return;
+      if(el.tagName==='IMG'){el.src=logoURL;}
+      else{const parent=el.parentElement;if(parent){parent.innerHTML=`<img src="${logoURL}" style="width:100%;height:100%;object-fit:cover;border-radius:inherit"/>`;}}
+    });
+    ['logo-prev','logo-img','alogo-prev','alogo-img'].forEach((id,i)=>{const el=document.getElementById(id);if(!el)return;if(i%2===0)el.classList.remove('hide');else el.src=logoURL;});
+    toast('Logo uploaded & applied site-wide! ✅','success');
+  };r.readAsDataURL(f);
+}
+function clrLogo(){logoURL=null;const lp=document.getElementById('logo-prev');if(lp)lp.classList.add('hide');toast('Logo removed','info');}
+function upHeroBanner(e){
+  const f=e.target.files[0];if(!f)return;
+  const r=new FileReader();
+  r.onload=ev=>{
+    const img=document.getElementById('hero-banner-img'),zone=document.getElementById('hero-edit-zone');
+    if(img){img.src=ev.target.result;img.classList.remove('hide');}
+    if(zone)zone.classList.add('hide');
+    const bp=document.getElementById('banner-prev'),bi=document.getElementById('banner-img');
+    if(bp&&bi){bp.classList.remove('hide');bi.src=ev.target.result;}
+    toast('Banner uploaded! ✅','success');
+  };r.readAsDataURL(f);
+}
+function upCatImg(e){
+  const f=e.target.files[0];if(!f)return;
+  const r=new FileReader();
+  r.onload=ev=>{
+    catImgURL=ev.target.result;
+    const p=document.getElementById('nc-prev'),i=document.getElementById('nc-img');
+    if(p)p.classList.remove('hide');if(i)i.src=ev.target.result;
+  };r.readAsDataURL(f);
+}
+function handleProdImgs(e){
+  const files=Array.from(e.target.files).slice(0,4);
+  const pv=document.getElementById('np-imgs-preview');
+  newPImgs=[];if(pv)pv.innerHTML='';
+  files.forEach(f=>{
+    const r=new FileReader();
+    r.onload=ev=>{
+      newPImgs.push(ev.target.result);
+      if(pv){const d=document.createElement('div');d.style.cssText='width:72px;height:72px;border-radius:10px;overflow:hidden;border:2px solid var(--bd)';d.innerHTML=`<img src="${ev.target.result}" style="width:100%;height:100%;object-fit:cover"/>`;pv.appendChild(d);}
+    };r.readAsDataURL(f);
+  });
+}
+
+// ════════════════════════════════════════════
+// PRODUCT MANAGEMENT
+// ════════════════════════════════════════════
+function openAddProd(){
+  editProdId=null;newPImgs=[];
+  document.getElementById('m-prod-title').textContent='Add New Product';
+  document.getElementById('np-edit-id').value='';
+  ['np-name','np-desc'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+  ['np-price','np-old','np-stock'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+  document.getElementById('np-badge').value='';
+  const pv=document.getElementById('np-imgs-preview');if(pv)pv.innerHTML='';
+  openM('m-prod');
+}
+function openEditProd(id){
+  const p=prods.find(x=>x.id===id);if(!p)return;
+  editProdId=id;newPImgs=[...(p.imgs||[])];
+  document.getElementById('m-prod-title').textContent='Edit Product';
+  document.getElementById('np-edit-id').value=id;
+  document.getElementById('np-name').value=p.name;
+  document.getElementById('np-price').value=p.price;
+  document.getElementById('np-old').value=p.old||'';
+  document.getElementById('np-cat').value=p.cat;
+  document.getElementById('np-stock').value=p.stock||'';
+  document.getElementById('np-desc').value=p.desc;
+  document.getElementById('np-badge').value=p.badge||'';
+  const pv=document.getElementById('np-imgs-preview');
+  if(pv)pv.innerHTML=(p.imgs||[]).map(s=>`<div style="width:72px;height:72px;border-radius:10px;overflow:hidden;border:2px solid var(--bd)"><img src="${s}" style="width:100%;height:100%;object-fit:cover"/></div>`).join('');
+  openM('m-prod');
+}
+function saveProd(){
+  const nm=document.getElementById('np-name').value.trim();
+  const pr=parseInt(document.getElementById('np-price').value);
+  if(!nm||!pr){toast('Name and price are required','error');return;}
+  const eid=document.getElementById('np-edit-id').value;
+  const pd={name:nm,price:pr,old:parseInt(document.getElementById('np-old').value)||null,cat:document.getElementById('np-cat').value,stock:parseInt(document.getElementById('np-stock').value)||0,desc:document.getElementById('np-desc').value,badge:document.getElementById('np-badge').value||null,imgs:newPImgs.length?[...newPImgs]:[],stars:5,rating:5.0,rev:0,isNew:true,owner:CU?.id||'ow1'};
+  if(eid){const i=prods.findIndex(x=>x.id===eid);if(i>=0)prods[i]={...prods[i],...pd};toast('Product updated! ✅','success');}
+  else{prods.unshift({id:'p'+Date.now(),...pd});toast('Product added! 🧸','success');addNotif('Product Added',`${nm} is now live in the store`,'order');}
+  closeM('m-prod');
+  if(CV==='o-prods')rOwnerProdsTbl();
+  if(CV==='a-prods')rAdminProdsTbl();
+  if(document.getElementById('as-prods'))document.getElementById('as-prods').textContent=prods.length;
+}
+function delProd(id){
+  prods=prods.filter(x=>x.id!==id);
+  if(CV==='o-prods')rOwnerProdsTbl();
+  if(CV==='a-prods')rAdminProdsTbl();
+  if(document.getElementById('as-prods'))document.getElementById('as-prods').textContent=prods.length;
+  toast('Product removed','info');
+}
+
+// ════════════════════════════════════════════
+// OWNER TABLES
+// ════════════════════════════════════════════
+function myProds(){return prods.filter(p=>p.owner===(CU?.id||'ow1'));}
+function rOwnerProdsTbl(){
+  const mp=myProds(),tb=document.getElementById('op-tb');
+  const cnt=document.getElementById('op-cnt');if(cnt)cnt.textContent=`${mp.length} products`;
+  if(!tb)return;
+  tb.innerHTML=mp.map(p=>`<tr>
+    <td><div class="td-with-img">${p.imgs&&p.imgs.length?`<div class="td-thumb"><img src="${p.imgs[0]}"/></div>`:`<div class="td-thumb"><div class="td-thumb-ph">${catMap[p.cat]||'📦'}</div></div>`}<div><strong>${p.name}</strong>${p.badge?`<br><span class="tag ${p.badge==='new'?'tag-g':'tag-r'}" style="margin-top:3px">${p.badge}</span>`:''}</div></div></td>
+    <td><span class="tag tag-p">${p.cat}</span></td>
+    <td><strong>₹${p.price.toLocaleString()}</strong>${p.old?`<br><span style="font-size:11px;color:var(--bd2);text-decoration:line-through">₹${p.old}</span>`:''}</td>
+    <td><span style="font-weight:600;color:${p.stock<10?'var(--r)':'var(--dk)'}">${p.stock}</span></td>
+    <td><span class="tag tag-g">Active</span></td>
+    <td><div class="act"><button class="act-btn ae" onclick="openEditProd('${p.id}')" title="Edit">✏️</button><button class="act-btn ad" onclick="delProd('${p.id}')" title="Delete">🗑️</button></div></td>
+  </tr>`).join('')||`<tr><td colspan="6" style="text-align:center;color:var(--mid);padding:2.5rem">No products yet. Click + Add Product to get started.</td></tr>`;
+}
+function rOwnerOrdsTbl(){
+  const myO=orders.filter(o=>o.owner===(CU?.id||'ow1')),tb=document.getElementById('oo-tb');if(!tb)return;
+  tb.innerHTML=myO.map(o=>`<tr>
+    <td><strong>${o.id}</strong></td><td>${o.cname}</td>
+    <td style="max-width:160px">${o.items.map(i=>`${i.name}×${i.qty}`).join(', ')}</td>
+    <td><strong>₹${o.total.toLocaleString()}</strong></td>
+    <td><span class="tag ${o.status==='Delivered'?'tag-g':o.status==='Shipped'?'tag-b':'tag-y'}">${o.status}</span></td>
+    <td>${o.date}</td>
+    <td><button class="act-btn av" onclick="toast('Viewing order ${o.id}','info')">👁️</button></td>
+  </tr>`).join('')||`<tr><td colspan="7" style="text-align:center;color:var(--mid);padding:2rem">No orders yet</td></tr>`;
+}
+function rOwnerCustsTbl(){
+  const tb=document.getElementById('oc-tb');if(!tb)return;
+  const cids=[...new Set(orders.filter(o=>o.owner===(CU?.id||'ow1')).map(o=>o.cid))];
+  const custs=users.filter(u=>u.role===R.CU&&cids.includes(u.id));
+  tb.innerHTML=custs.map(c=>`<tr><td><strong>${c.name}</strong></td><td>${c.email}</td><td>${c.mobile||'—'}</td><td>${orders.filter(o=>o.cid===c.id).length}</td><td>${c.joined||'—'}</td></tr>`).join('')||`<tr><td colspan="5" style="text-align:center;color:var(--mid);padding:2rem">No customers yet</td></tr>`;
+}
+function updOwnerStats(){
+  const mp=myProds(),mo=orders.filter(o=>o.owner===(CU?.id||'ow1'));
+  const cids=[...new Set(mo.map(o=>o.cid))],rev=mo.reduce((s,o)=>s+o.total,0);
+  document.getElementById('os-p').textContent=mp.length;
+  document.getElementById('os-o').textContent=mo.length;
+  document.getElementById('os-c').textContent=cids.length;
+  document.getElementById('os-r').textContent='₹'+rev.toLocaleString();
+  const sub=document.getElementById('o-dash-sub');if(sub)sub.textContent=`Welcome back, ${CU?.name?.split(' ')[0]}! Here's your store overview.`;
+}
+
+// ════════════════════════════════════════════
+// ANALYTICS
+// ════════════════════════════════════════════
+function rAnalytics(scope){
+  const mo=scope==='admin'?orders:orders.filter(o=>o.owner===(CU?.id||'ow1'));
+  const rev=mo.reduce((s,o)=>s+o.total,0);
+  const aov=mo.length?Math.round(rev/mo.length):0;
+  if(scope==='owner'){
+    document.getElementById('an-rev').textContent='₹'+rev.toLocaleString();
+    document.getElementById('an-ords').textContent=mo.length;
+    document.getElementById('an-aov').textContent='₹'+aov.toLocaleString();
+    document.getElementById('an-conv').textContent='4.2%';
+    document.getElementById('an-wish').textContent=wish.length;
+    document.getElementById('an-del').textContent=mo.filter(o=>o.status==='Delivered').length;
+    document.getElementById('an-ship').textContent=mo.filter(o=>o.status==='Shipped').length;
+    document.getElementById('an-proc').textContent=mo.filter(o=>o.status==='Processing').length;
+    rChart('sales-chart','sales-chart-labels',scope);
+    rTopProds();
+  } else {
+    document.getElementById('aa-rev').textContent='₹'+rev.toLocaleString();
+    document.getElementById('aa-ords').textContent=mo.length;
+    document.getElementById('aa-custs').textContent=users.filter(u=>u.role===R.CU).length;
+    document.getElementById('aa-owns').textContent=users.filter(u=>u.role===R.OW).length;
+    rChart('admin-chart','admin-chart-labels',scope);
+    rTopOwners();
+  }
+}
+function rChart(chartId,labelId,scope){
+  const months=['Jan','Feb','Mar','Apr','May','Jun'];
+  const vals=[12400,18900,15200,22100,19800,28400];
+  const chartEl=document.getElementById(chartId),labelEl=document.getElementById(labelId);
+  if(!chartEl||!labelEl)return;
+  const max=Math.max(...vals);
+  chartEl.innerHTML=vals.map((v,i)=>`<div class="chart-bar" data-val="₹${(v/1000).toFixed(0)}k" style="height:${Math.round((v/max)*100)}%;flex:1;background:${i===vals.length-1?'var(--p)':'rgba(255,107,53,.3)'};border-radius:4px 4px 0 0;transition:height .6s ease ${i*.1}s"></div>`).join('');
+  labelEl.innerHTML=months.map(m=>`<span style="flex:1;text-align:center">${m}</span>`).join('');
+}
+function rTopProds(){
+  const el=document.getElementById('top-prods-list');if(!el)return;
+  const mp=myProds().slice(0,4);
+  el.innerHTML=mp.map((p,i)=>`<div style="display:flex;align-items:center;gap:.75rem;padding:.6rem 0;border-bottom:1px solid var(--bd)"><span style="font-weight:800;color:var(--mid);width:18px">${i+1}</span><div style="width:36px;height:36px;border-radius:8px;overflow:hidden;background:var(--lt2);flex-shrink:0">${p.imgs&&p.imgs.length?`<img src="${p.imgs[0]}" style="width:100%;height:100%;object-fit:cover"/>`:`<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:18px">${catMap[p.cat]||'📦'}</div>`}</div><div style="flex:1"><div style="font-weight:700;font-size:13px">${p.name}</div><div style="font-size:11px;color:var(--mid)">${p.rev} reviews</div></div><div style="font-weight:700;font-size:13px;color:var(--p)">₹${p.price.toLocaleString()}</div></div>`).join('');
+}
+function rTopOwners(){
+  const el=document.getElementById('top-owners-list');if(!el)return;
+  const owns=users.filter(u=>u.role===R.OW);
+  el.innerHTML=owns.map((o,i)=>{
+    const rev=orders.filter(x=>x.owner===o.id).reduce((s,x)=>s+x.total,0);
+    return`<div style="display:flex;align-items:center;gap:.75rem;padding:.6rem 0;border-bottom:1px solid var(--bd)"><span style="font-weight:800;color:var(--mid);width:18px">${i+1}</span><div style="width:36px;height:36px;border-radius:50%;background:var(--p);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:15px;flex-shrink:0">${o.name[0]}</div><div style="flex:1"><div style="font-weight:700;font-size:13px">${o.name}</div><div style="font-size:11px;color:var(--mid)">${o.store}</div></div><div style="font-weight:700;font-size:13px;color:var(--p)">₹${rev.toLocaleString()}</div></div>`;
+  }).join('');
+}
+
+// ════════════════════════════════════════════
+// OWNER MANAGEMENT (Admin)
+// ════════════════════════════════════════════
+function openCrtOwn(){openM('m-cown');}
+function createOwner(){
+  const fn=document.getElementById('co-fn').value.trim(),em=document.getElementById('co-em').value.trim();
+  const st=document.getElementById('co-store').value.trim(),pw=document.getElementById('co-pw').value;
+  if(!fn||!em||!st||!pw){toast('Fill all required fields','error');return;}
+  if(users.find(u=>u.email===em)){toast('Email already exists','error');return;}
+  const newOwner={id:'ow'+Date.now(),name:fn+' '+document.getElementById('co-ln').value,email:em,password:pw,role:R.OW,store:st,mobile:document.getElementById('co-mob').value,status:'active',perms:{prod:document.getElementById('pm-prod').checked,ord:document.getElementById('pm-ord').checked,cust:document.getElementById('pm-cust').checked,set:document.getElementById('pm-set').checked,img:document.getElementById('pm-img').checked,off:document.getElementById('pm-off').checked,analytics:document.getElementById('pm-analytics').checked,landing:document.getElementById('pm-landing').checked}};
+  users.push(newOwner);
+  closeM('m-cown');rAdminOwnsTbl();
+  addNotif('New Owner Created',`${fn} has been added as a shop owner`,'customer');
+  toast(`Owner account created for ${fn}! ✅`,'success');
+}
+function rAdminOwnsTbl(){
+  const owns=users.filter(u=>u.role===R.OW),tb=document.getElementById('ao-tb');
+  if(document.getElementById('as-own'))document.getElementById('as-own').textContent=owns.length;
+  if(!tb)return;
+  tb.innerHTML=owns.map(o=>`<tr>
+    <td><div class="td-with-img"><div style="width:36px;height:36px;border-radius:50%;background:var(--p);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:15px;flex-shrink:0">${o.name[0]}</div><div><strong>${o.name}</strong><br><span style="font-size:11px;color:var(--mid)">${o.mobile||''}</span></div></div></td>
+    <td>${o.email}</td><td>${o.store||'—'}</td><td>${prods.filter(p=>p.owner===o.id).length}</td>
+    <td><span class="tag ${o.status==='active'?'tag-g':'tag-r'}">${o.status||'active'}</span></td>
+    <td><button onclick="openPerms('${o.id}')" style="background:rgba(139,92,246,.1);color:var(--pu);border:1px solid rgba(139,92,246,.2);border-radius:var(--r6);padding:5px 10px;cursor:pointer;font-size:12px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700">Edit Perms</button></td>
+    <td><div class="act"><button class="act-btn ae" onclick="toast('Edit owner - coming soon','info')">✏️</button><button class="act-btn ad" onclick="delOwner('${o.id}')">🗑️</button></div></td>
+  </tr>`).join('');
+}
+function openPerms(id){
+  const o=users.find(u=>u.id===id);if(!o)return;
+  document.getElementById('ep-nm').textContent=o.name;
+  document.getElementById('ep-id').value=id;
+  document.getElementById('ep-status').value=o.status||'active';
+  const p=o.perms||{};
+  ['prod','ord','cust','set','img','off','analytics','landing'].forEach(k=>{const el=document.getElementById('ep-'+k);if(el)el.checked=!!p[k];});
+  openM('m-perms');
+}
+function savePerms(){
+  const id=document.getElementById('ep-id').value,o=users.find(u=>u.id===id);if(!o)return;
+  o.status=document.getElementById('ep-status').value;
+  o.perms={};
+  ['prod','ord','cust','set','img','off','analytics','landing'].forEach(k=>{const el=document.getElementById('ep-'+k);if(el)o.perms[k]=el.checked;});
+  closeM('m-perms');rAdminOwnsTbl();toast('Permissions updated! ✅','success');
+}
+function delOwner(id){users=users.filter(u=>u.id!==id);rAdminOwnsTbl();toast('Owner account removed','info');}
+function rAdminCustsTbl(){
+  const custs=users.filter(u=>u.role===R.CU),tb=document.getElementById('ac-tb');
+  if(document.getElementById('as-custs'))document.getElementById('as-custs').textContent=custs.length;
+  if(!tb)return;
+  tb.innerHTML=custs.map(c=>`<tr><td><strong>${c.name}</strong></td><td>${c.email}</td><td>${c.mobile||'—'}</td><td>${orders.filter(o=>o.cid===c.id).length}</td><td>${c.joined||'—'}</td><td><span class="tag tag-g">Active</span></td></tr>`).join('');
+}
+function rAdminProdsTbl(){
+  const tb=document.getElementById('ap-tb');if(!tb)return;
+  tb.innerHTML=prods.map(p=>{
+    const own=users.find(u=>u.id===p.owner);
+    return`<tr>
+      <td><div class="td-with-img">${p.imgs&&p.imgs.length?`<div class="td-thumb"><img src="${p.imgs[0]}"/></div>`:`<div class="td-thumb"><div class="td-thumb-ph">${catMap[p.cat]||'📦'}</div></div>`}<strong>${p.name}</strong></div></td>
+      <td>${own?.name||'—'}</td><td><span class="tag tag-p">${p.cat}</span></td>
+      <td>₹${p.price.toLocaleString()}</td><td>${p.stock}</td>
+      <td><div class="act"><button class="act-btn ad" onclick="delProd('${p.id}')">🗑️</button></div></td>
+    </tr>`;
+  }).join('');
+}
+function rAdminOrdsTbl(){
+  const tb=document.getElementById('aord-tb');if(!tb)return;
+  tb.innerHTML=orders.map(o=>{
+    const own=users.find(u=>u.id===o.owner);
+    return`<tr><td><strong>${o.id}</strong></td><td>${o.cname}</td><td>${own?.name||'—'}</td>
+    <td>${o.items.map(i=>i.name).join(', ')}</td><td><strong>₹${o.total.toLocaleString()}</strong></td>
+    <td><span class="tag ${o.status==='Delivered'?'tag-g':o.status==='Shipped'?'tag-b':'tag-y'}">${o.status}</span></td>
+    <td>${o.date}</td></tr>`;
+  }).join('');
+  if(document.getElementById('as-ords'))document.getElementById('as-ords').textContent=orders.length;
+}
+
+// ════════════════════════════════════════════
+// CATEGORIES & OFFERS
+// ════════════════════════════════════════════
+function rCats(){
+  const g=document.getElementById('cats-grid');if(!g)return;
+  g.innerHTML=cats.map(c=>`<div class="card card-hover" style="text-align:center">
+    ${c.img?`<img src="${c.img}" style="width:64px;height:64px;border-radius:50%;object-fit:cover;margin:0 auto .75rem;display:block"/>`:`<div style="font-size:48px;margin-bottom:.75rem">${c.emoji}</div>`}
+    <div style="font-weight:800;margin-bottom:4px">${c.name}</div>
+    <div style="font-size:12px;color:var(--mid);margin-bottom:.75rem">${prods.filter(p=>p.cat===c.name).length} products</div>
+    <button onclick="delCat('${c.id}')" style="background:rgba(239,68,68,.1);color:var(--r);border:1px solid rgba(239,68,68,.2);border-radius:var(--r6);padding:5px 10px;cursor:pointer;font-size:12px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700">Remove</button>
+  </div>`).join('');
+}
+function openAddCat(){catImgURL=null;const p=document.getElementById('nc-prev');if(p)p.classList.add('hide');['nc-name','nc-em'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});openM('m-cat');}
+function addCat(){
+  const nm=document.getElementById('nc-name').value.trim();if(!nm){toast('Category name required','error');return;}
+  const em=document.getElementById('nc-em').value||'📦';
+  cats.push({id:'cat'+Date.now(),name:nm,emoji:em,img:catImgURL||null});
+  closeM('m-cat');rCats();rCatChips();
+  const sel=document.getElementById('cat-filter');if(sel){const o=document.createElement('option');o.value=nm;o.textContent=em+' '+nm;sel.appendChild(o);}
+  toast(`Category "${nm}" added!`,'success');
+}
+function delCat(id){cats=cats.filter(c=>c.id!==id);rCats();rCatChips();toast('Category removed','info');}
+function openAddOffer(){openM('m-offer');}
+function saveOffer(){
+  const t=document.getElementById('of-title').value.trim();if(!t){toast('Offer title required','error');return;}
+  offers.push({id:'of'+Date.now(),title:t,disc:document.getElementById('of-disc').value,start:document.getElementById('of-start').value,end:document.getElementById('of-end').value,applies:document.getElementById('of-app').value});
+  closeM('m-offer');rOffers();toast('Offer created! 🎁','success');
+}
+function rOffers(){
+  const g=document.getElementById('offers-grid');if(!g)return;
+  if(!offers.length){g.innerHTML=`<div style="text-align:center;padding:3rem;color:var(--mid);grid-column:1/-1"><div style="font-size:48px">🎁</div><p style="font-weight:700;margin-top:.75rem">No offers yet</p></div>`;return;}
+  g.innerHTML=offers.map(o=>`<div class="card"><div style="display:flex;align-items:start;justify-content:space-between;margin-bottom:.75rem"><div><div style="font-weight:800;font-size:15px">${o.title}</div><div style="font-size:12px;color:var(--mid);margin-top:3px">${o.start||'—'} → ${o.end||'—'}</div></div><span class="tag tag-r">${o.disc||0}% OFF</span></div><div style="font-size:13px;color:var(--mid);margin-bottom:.75rem">Applies to: ${o.applies}</div><button onclick="delOffer('${o.id}')" style="background:rgba(239,68,68,.1);color:var(--r);border:1px solid rgba(239,68,68,.2);border-radius:var(--r6);padding:5px 10px;cursor:pointer;font-size:12px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700">Remove</button></div>`).join('');
+}
+function delOffer(id){offers=offers.filter(o=>o.id!==id);rOffers();toast('Offer removed','info');}
+
+// ════════════════════════════════════════════
+// SETTINGS
+// ════════════════════════════════════════════
+function pvBrand(v){
+  ['nav-brand','ft-brand-name','ll-brand-name','ol-brand','ca-brand'].forEach(id=>{const el=document.getElementById(id);if(el)el.textContent=v;});
+  document.title=v+' – Fun For Everyone';
+}
+function applyClr(hex,el){
+  document.documentElement.style.setProperty('--p',hex);
+  document.documentElement.style.setProperty('--pd',shade(hex,-20));
+  document.documentElement.style.setProperty('--pl',shade(hex,30));
+  document.documentElement.style.setProperty('--pp',hex+'18');
+  document.querySelectorAll('[onclick*="applyClr"]').forEach(s=>s.style.boxShadow='0 0 0 2px var(--bd)');
+  if(el)el.style.boxShadow='0 0 0 2px '+hex;
+  toast('Theme color updated!','success');
+}
+function shade(hex,p){const n=parseInt(hex.replace('#',''),16);const r2=Math.min(255,Math.max(0,(n>>16)+p));const g2=Math.min(255,Math.max(0,((n>>8)&0xff)+p));const b2=Math.min(255,Math.max(0,(n&0xff)+p));return'#'+((1<<24)|(r2<<16)|(g2<<8)|b2).toString(16).slice(1);}
+function saveOwnerSettings(){pvBrand(document.getElementById('os-name').value);document.getElementById('about-txt')&&(document.getElementById('about-txt').textContent=document.getElementById('os-about').value);toast('Settings saved! ✅','success');}
+function saveAdminSite(){pvBrand(document.getElementById('as-name').value);waNum=document.getElementById('as-wa').value;document.getElementById('ft-email').textContent=document.getElementById('as-email').value;document.getElementById('about-txt')&&(document.getElementById('about-txt').textContent=document.getElementById('as-about').value);toast('Site settings saved! ✅','success');}
+function saveBannerSettings(){document.getElementById('h-headline').textContent=document.getElementById('bh-hl').value;document.getElementById('h-subtext').textContent=document.getElementById('bh-st').value;document.getElementById('h-eyebrow').textContent=document.getElementById('bh-ey').value;toast('Banner settings saved! ✅','success');}
+
+// ════════════════════════════════════════════
+// MODAL & BADGES & TOAST
+// ════════════════════════════════════════════
+function openM(id){const el=document.getElementById(id);if(el)el.classList.add('open');}
+function closeM(id){const el=document.getElementById(id);if(el)el.classList.remove('open');}
+document.querySelectorAll('.overlay').forEach(m=>m.addEventListener('click',e=>{if(e.target===m)m.classList.remove('open');}));
+function updBadges(){
+  const cc=cart.reduce((s,i)=>s+i.qty,0),wc=wish.length;
+  ['cc'].forEach(id=>{const el=document.getElementById(id);if(el)el.textContent=cc;});
+  ['wc'].forEach(id=>{const el=document.getElementById(id);if(el)el.textContent=wc;});
+  ['sb-cc'].forEach(id=>{const el=document.getElementById(id);if(el)el.textContent=cc;});
+  ['sb-wc'].forEach(id=>{const el=document.getElementById(id);if(el)el.textContent=wc;});
+}
+let toastQ=0;
+function toast(msg,type='success'){
+  const stack=document.getElementById('toast-stack');if(!stack)return;
+  const t=document.createElement('div');
+  t.className=`toast ${type}`;
+  const icons={success:'✅',error:'❌',info:'ℹ️'};
+  t.innerHTML=`<span>${icons[type]||'✅'}</span><span>${msg}</span>`;
+  stack.appendChild(t);
+  requestAnimationFrame(()=>{requestAnimationFrame(()=>t.classList.add('show'));});
+  setTimeout(()=>{t.classList.remove('show');setTimeout(()=>t.remove(),400);},2800);
+}
+// ════════════════════════════════════════════
+// INIT
+// ════════════════════════════════════════════
+// Add admin login route: /admin
+if(window.location.hash==='#admin'){showScreen('screen-admin-auth');}
+// Init landing page
+rLLProds();rLLCats();
+// Responsive sidebar
+window.addEventListener('resize',()=>{
+  if(window.innerWidth>900&&CU){
+    document.getElementById('sidebar').classList.remove('closed');
+    document.getElementById('main').style.marginLeft='232px';
+  } else {
+    document.getElementById('sidebar').classList.add('closed');
+    document.getElementById('main').style.marginLeft='0';
+  }
+},{passive:true});
+</script>
+</body>
+</html>
